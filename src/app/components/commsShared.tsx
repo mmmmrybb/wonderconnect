@@ -331,7 +331,7 @@ function AudienceMultiSelect({ label, options, selected, onChange, disabled }: {
           placeholder={selected.length === 0 ? `Select ${label.toLowerCase()}…` : ""}
           className="flex-1 min-w-[60px] outline-none text-[12.5px] placeholder:text-gray-400 bg-transparent"
           onClick={(e) => e.stopPropagation()} disabled={disabled} />
-        <MdKeyboardArrowDown size={14} className={`text-gray-400 shrink-0 transition-transform ${open ? "rotate-180" : ""}`} />
+        <ChevronDown size={14} className={`text-gray-400 shrink-0 transition-transform ${open ? "rotate-180" : ""}`} />
       </div>
       {open && !disabled && (
         <div className="absolute z-[9999] left-0 right-0 mt-1 max-h-48 overflow-y-auto bg-white border border-gray-200 rounded-[8px] shadow-lg">
