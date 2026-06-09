@@ -45,13 +45,14 @@ export function TopBar({ menuOpen = false, onToggleNav }: TopBarProps) {
           borderBottom: "1px solid rgba(255,255,255,0.12)",
         }}
       >
-        {/* Left: hamburger + logo */}
-        <div className="flex items-center flex-none relative" style={{ gap: "20px", paddingLeft: 24, paddingRight: 16, zIndex: 2 }}>
+        {/* Left: hamburger + logo — fixed 240px to match sidebar width */}
+        <div
+          className="flex items-center flex-none relative transition-colors"
+          style={{ width: 240, gap: "20px", paddingLeft: 24, paddingRight: 16, zIndex: 2, background: menuOpen ? "rgba(255,255,255,0.08)" : "transparent" }}
+        >
           <button
             onClick={() => onToggleNav?.()}
-            className={`w-[28px] h-[28px] flex-none flex items-center justify-center rounded-[6px] transition-colors ${
-              menuOpen ? "bg-white/15" : "hover:bg-white/10"
-            }`}
+            className="w-[28px] h-[28px] flex-none flex items-center justify-center rounded-[6px] transition-colors hover:bg-white/10"
             title={menuOpen ? "Close menu" : "Open menu"}
           >
             <Menu size={22} style={{ color: "#FFFFFF" }} />
