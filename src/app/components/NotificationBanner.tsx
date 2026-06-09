@@ -84,12 +84,12 @@ export function NotificationBanner({ inline = false }: NotificationBannerProps) 
     return (
       <>
         <div
-          className="flex-1 min-w-0 relative overflow-hidden flex items-center"
-          style={{ height: "44px", background: "var(--wb-announce-bg)", borderRadius: 0 }}
+          className="flex-1 min-w-0 relative flex items-center"
+          style={{ height: "44px", background: "var(--wb-announce-bg)", borderRadius: 0, border: "none", outline: "none", boxShadow: "none" }}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
         >
-          <div className="flex-1 overflow-hidden relative">
+          <div className="flex-1 overflow-hidden relative" style={{ borderRadius: 0 }}>
             <div
               className="flex whitespace-nowrap animate-marquee"
               style={{ animationPlayState: hovered ? "paused" : "running" }}
