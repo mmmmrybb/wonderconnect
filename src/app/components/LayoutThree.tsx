@@ -88,7 +88,7 @@ function CategoryRail({ posts, activeCategory, onCategoryChange, onCollapse }: {
             >
               <span className="truncate">{cat}</span>
               {unread > 0 && (
-                <span className={`flex-none text-[10px] font-bold rounded-full px-1.5 py-0.5 min-w-[18px] text-center leading-none`}
+                <span className={`flex-none text-[10px] font-semibold rounded-full px-1.5 py-0.5 min-w-[18px] text-center leading-none`}
                   style={{ background: active ? "var(--wb-blue-100)" : "var(--wb-red-bg)", color: active ? "var(--wb-blue)" : "var(--wb-red)" }}>
                   {unread}
                 </span>
@@ -189,7 +189,7 @@ function PostRow({ post, ctl }: { post: Post; ctl: CommsController }) {
 
       <div className="flex-1 min-w-0">
         <p className={`flex items-center gap-1.5 text-[13px] leading-snug ${
-          post.isUrgent ? (!post.isRead ? "font-bold text-red-600" : "font-medium text-red-500") : (!post.isRead ? "font-bold text-gray-900" : "font-medium text-gray-600")
+          post.isUrgent ? (!post.isRead ? "font-semibold text-red-600" : "font-medium text-red-500") : (!post.isRead ? "font-semibold text-gray-900" : "font-medium text-gray-600")
         }`}>
           {post.isConfidential && <EyeOff size={13} className="flex-none text-amber-500" title="Confidential" />}
           <span className="truncate">{post.fileName}</span>
