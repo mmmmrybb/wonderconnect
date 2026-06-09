@@ -1,0 +1,26 @@
+@import 'tailwindcss' source(none);
+@source '../**/*.{js,ts,jsx,tsx}';
+
+@import 'tw-animate-css';
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 26s linear infinite;
+}
+
+@keyframes sbFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes sbSlide { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+@keyframes psFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes psSlide { from { transform: translateX(100%); } to { transform: translateX(0); } }
+
+.marquee-banner:hover .animate-marquee {
+  animation-play-state: paused;
+}
