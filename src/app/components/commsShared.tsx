@@ -445,7 +445,7 @@ export function PostDialog({ isOpen, onClose, editingPost, onSave }: PostDialogP
       <div className="relative bg-white rounded-[10px] w-[640px] max-w-[calc(100vw-2rem)] mx-4 overflow-hidden" style={{ boxShadow: "var(--wb-shadow-xl)" }}>
         <div className="flex items-center justify-between border-b px-5 py-3" style={{ borderColor: "var(--wb-line)" }}>
           <h2 className="text-[16px] font-semibold" style={{ color: "var(--wb-ink-900)" }}>{editingPost ? "Edit post" : "New post"}</h2>
-          <button onClick={onClose} className="w-7 h-7 flex items-center justify-center rounded-[6px] hover:bg-gray-100 text-gray-400 transition-colors"><X size={16} /></button>
+          <button onClick={onClose} className="w-7 h-7 flex items-center justify-center rounded-[6px] hover:bg-gray-100 text-gray-400 transition-colors"><MdClose size={16} /></button>
         </div>
 
         <div className="max-h-[70vh] overflow-y-auto px-5 py-4 flex flex-col gap-4">
@@ -468,12 +468,12 @@ export function PostDialog({ isOpen, onClose, editingPost, onSave }: PostDialogP
             >
               {attached
                 ? <div className="flex items-center gap-2 text-emerald-600">
-                    <CheckCircle2 size={16} />
+                    <MdCheckCircle size={16} />
                     <span className="text-[12.5px] font-medium truncate max-w-[220px]">{attached}</span>
-                    <button onClick={(e) => { e.stopPropagation(); setAttached(null); }} className="ml-1 text-gray-400 hover:text-red-500 transition-colors"><X size={13} /></button>
+                    <button onClick={(e) => { e.stopPropagation(); setAttached(null); }} className="ml-1 text-gray-400 hover:text-red-500 transition-colors"><MdClose size={13} /></button>
                   </div>
                 : <div className="flex items-center gap-1.5">
-                    <Upload size={18} className="text-gray-400" />
+                    <MdUpload size={18} className="text-gray-400" />
                     <p className="text-[12px] text-gray-500"><span className="font-medium" style={{ color: "var(--wb-blue)" }}>Click to upload</span> or drag and drop</p>
                   </div>
               }
@@ -521,10 +521,10 @@ export function PostDialog({ isOpen, onClose, editingPost, onSave }: PostDialogP
                 <button type="button" onClick={() => setIsUrgent(true)}
                   className={`flex-1 flex items-center justify-center gap-1 text-[12px] font-medium transition-colors ${isUrgent ? "text-white" : "text-gray-500 hover:bg-gray-50"}`}
                   style={isUrgent ? { background: "var(--wb-red)" } : { background: "white" }}>
-                  <AlertCircle size={13} />Urgent
+                  <MdError size={13} />Urgent
                 </button>
               </div>
-              {isUrgent && <p className="text-[10.5px] flex items-center gap-1" style={{ color: "var(--wb-red)" }}><AlertCircle size={10} />Highlighted in red</p>}
+              {isUrgent && <p className="text-[10.5px] flex items-center gap-1" style={{ color: "var(--wb-red)" }}><MdError size={10} />Highlighted in red</p>}
             </div>
             <div className="flex flex-col gap-1">
               <label className="text-[12px] font-medium" style={{ color: "var(--wb-ink-400)", fontFamily: "Roboto" }}>File Type <span style={{ color: "var(--wb-red)", fontWeight: 700 }}>*</span></label>
@@ -535,10 +535,10 @@ export function PostDialog({ isOpen, onClose, editingPost, onSave }: PostDialogP
                 <button type="button" onClick={() => setIsConfidential(true)}
                   className={`flex-1 flex items-center justify-center gap-1 text-[12px] font-medium transition-colors ${isConfidential ? "text-white" : "text-gray-500 hover:bg-gray-50"}`}
                   style={isConfidential ? { background: "var(--wb-amber)" } : { background: "white" }}>
-                  <EyeOff size={13} />Confidential
+                  <MdVisibilityOff size={13} />Confidential
                 </button>
               </div>
-              {isConfidential && <p className="text-[10.5px] flex items-center gap-1" style={{ color: "var(--wb-amber-ink)" }}><EyeOff size={10} />Only ID owner has access</p>}
+              {isConfidential && <p className="text-[10.5px] flex items-center gap-1" style={{ color: "var(--wb-amber-ink)" }}><MdVisibilityOff size={10} />Only ID owner has access</p>}
             </div>
           </div>
 
@@ -549,7 +549,7 @@ export function PostDialog({ isOpen, onClose, editingPost, onSave }: PostDialogP
           </div>
           <div className="flex flex-col gap-1">
             <p className="text-[10.5px] flex items-center gap-1" style={{ color: "var(--wb-red)" }}>
-              <Info size={11} />You may select one option from Region, Location, Route, or Depot, with or without banners
+              <MdInfo size={11} />You may select one option from Region, Location, Route, or Depot, with or without banners
             </p>
             <div className="flex flex-col gap-3 mt-2">
               {["Region", "Location", "Route", "Depot", "Banner"].map((field) => {

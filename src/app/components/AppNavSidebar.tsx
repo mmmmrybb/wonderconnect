@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import {
-  ShoppingCart, Tag, FileText, MessageSquare, BadgeCheck,
-  TrendingUp, Share2, Mail, ChevronDown,
-} from "lucide-react";
+  MdShoppingCart, MdLocalOffer, MdDescription, MdChatBubbleOutline, MdVerified,
+  MdTrendingUp, MdShare, MdMailOutline, MdKeyboardArrowDown,
+} from "react-icons/md";
 
 interface AppItem {
   name: string;
@@ -32,14 +32,14 @@ const WonderConnectHomeIcon = () => (
 
 const FEATURED_APPS: AppItem[] = [
   { name: "WonderConnect", isHome: true },
-  { name: "Smart Order", icon: <ShoppingCart size={18} strokeWidth={1.5} /> },
-  { name: "Features", icon: <Tag size={18} strokeWidth={1.5} /> },
-  { name: "Statements", icon: <FileText size={18} strokeWidth={1.5} /> },
-  { name: "Communications", icon: <MessageSquare size={18} strokeWidth={1.5} /> },
-  { name: "User Admin", icon: <BadgeCheck size={18} strokeWidth={1.5} /> },
-  { name: "Business Dashboard", icon: <TrendingUp size={18} strokeWidth={1.5} />, subItems: ["Sales Overview", "Inventory", "Analytics", "Reports"] },
-  { name: "Franchisee Admin", icon: <Share2 size={18} strokeWidth={1.5} /> },
-  { name: "Email", icon: <Mail size={18} strokeWidth={1.5} /> },
+  { name: "Smart Order", icon: <MdShoppingCart size={18} /> },
+  { name: "Features", icon: <MdLocalOffer size={18} /> },
+  { name: "Statements", icon: <MdDescription size={18} /> },
+  { name: "Communications", icon: <MdChatBubbleOutline size={18} /> },
+  { name: "User Admin", icon: <MdVerified size={18} /> },
+  { name: "Business Dashboard", icon: <MdTrendingUp size={18} />, subItems: ["Sales Overview", "Inventory", "Analytics", "Reports"] },
+  { name: "Franchisee Admin", icon: <MdShare size={18} /> },
+  { name: "Email", icon: <MdMailOutline size={18} /> },
 ];
 
 const COMING_SOON = [
@@ -102,7 +102,7 @@ function SidebarItem({
           {app.name}
         </span>
         {hasSub && (
-          <ChevronDown
+          <MdKeyboardArrowDown
             size={16}
             style={{
               color: "rgba(255,255,255,0.5)",
