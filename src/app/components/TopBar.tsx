@@ -38,7 +38,7 @@ export function TopBar({ menuOpen = false, onToggleNav }: TopBarProps) {
   return (
     <div className="flex-none z-50 relative">
       <div
-        className="relative flex items-center"
+        className="relative flex"
         style={{
           background: "#133356",
           height: "44px",
