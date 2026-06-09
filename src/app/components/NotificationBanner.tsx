@@ -45,6 +45,7 @@ export function NotificationBanner({ inline = false }: NotificationBannerProps) 
   const [editingId, setEditingId] = useState<string | null>(null);
   const [form, setForm] = useState(EMPTY_FORM);
   const [errors, setErrors] = useState<Record<string, boolean>>({});
+  const [hovered, setHovered] = useState(false);
 
   const marqueeText = announcements.map((a) => a.english).join("   •   ");
 
@@ -78,17 +79,21 @@ export function NotificationBanner({ inline = false }: NotificationBannerProps) 
     setAnnouncements((prev) => prev.filter((a) => a.id !== id));
   };
 
-  // Inline mode: compact marquee strip for TopBar center
+  // Inline mode: full-height marquee strip for TopBar center
   if (inline) {
     return (
       <>
         <div
-          className="marquee-banner group flex-1 min-w-0 relative overflow-hidden flex items-center cursor-pointer rounded-[3px]"
-          style={{ height: "26px", background: "var(--wb-announce-bg)", maxWidth: "480px" }}
-          onClick={openList}
+          className="flex-1 min-w-0 relative overflow-hidden flex items-center"
+          style={{ height: "44px", background: "var(--wb-announce-bg)" }}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
         >
           <div className="flex-1 overflow-hidden relative">
-            <div className="flex whitespace-nowrap animate-marquee">
+            <div
+              className="flex whitespace-nowrap animate-marquee"
+              style={{ animationPlayState: hovered ? "paused" : "running" }}
+            >
               <span className="font-medium text-[12px] pr-[120px]" style={{ color: "var(--wb-announce-ink)", fontFamily: "Poppins, sans-serif" }}>
                 {marqueeText}
               </span>
@@ -97,6 +102,18 @@ export function NotificationBanner({ inline = false }: NotificationBannerProps) 
               </span>
             </div>
           </div>
+          {hovered && (
+            <div className="absolute right-3 z-10">
+              <button
+                onClick={openList}
+                className="flex items-center gap-1.5 px-2.5 py-1 rounded-[3px] shadow-sm cursor-pointer text-[11px] font-semibold transition-opacity"
+                style={{ background: "rgba(255,255,255,0.92)", color: "var(--wb-announce-ink)" }}
+              >
+                <Edit2 size={11} />
+                Edit
+              </button>
+            </div>
+          )}
         </div>
 
         {showList && (

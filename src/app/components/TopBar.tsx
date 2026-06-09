@@ -5,7 +5,7 @@ import pfpImg from "../../assets/pfp.png";
 
 function WonderConnectLogo() {
   return (
-    <svg width="152" height="27" viewBox="0 0 152 27" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ height: 20, width: "auto" }}>
+    <svg width="152" height="27" viewBox="0 0 152 27" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ height: 24, width: "auto" }}>
       <ellipse cx="1.91919" cy="2.99207" rx="1.91919" ry="1.79523" fill="#E74755"/>
       <ellipse cx="13.1313" cy="3.40146" rx="2.96296" ry="2.77158" fill="#2F83C5"/>
       <ellipse cx="17.6431" cy="8.88167" rx="2.3569" ry="2.20467" fill="#7BBF44"/>
