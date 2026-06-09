@@ -103,7 +103,7 @@ export function NotificationBanner({ inline = false }: NotificationBannerProps) 
             </div>
           </div>
           {hovered && (
-            <div className="absolute right-3 z-10">
+            <div className="absolute left-3 z-10">
               <button
                 onClick={openList}
                 className="flex items-center gap-1.5 px-2.5 py-1 rounded-[3px] shadow-sm cursor-pointer text-[11px] font-semibold transition-opacity"
