@@ -85,7 +85,7 @@ export function NotificationBanner({ inline = false }: NotificationBannerProps) 
       <>
         <div
           className="flex-1 min-w-0 relative overflow-hidden flex items-center"
-          style={{ height: "44px", background: "var(--wb-announce-bg)" }}
+          style={{ height: "44px", background: "var(--wb-announce-bg)", borderRadius: 0 }}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
         >
