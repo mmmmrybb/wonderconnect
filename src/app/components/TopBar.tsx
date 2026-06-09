@@ -42,7 +42,6 @@ export function TopBar({ menuOpen = false, onToggleNav }: TopBarProps) {
         style={{
           background: "#133356",
           height: "44px",
-          borderBottom: "1px solid rgba(255,255,255,0.12)",
         }}
       >
         {/* Left: hamburger + logo — fixed 240px to match sidebar width */}
