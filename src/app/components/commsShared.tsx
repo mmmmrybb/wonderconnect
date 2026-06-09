@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import {
   Search, X, Filter, Mail, MailOpen, Trash2, Check, ChevronDown, ChevronUp,
   ChevronsLeft, ChevronsRight, ChevronLeft, ChevronRight,
-  EyeOff, AlertCircle, CheckCircle2, Upload, Info,
+  EyeOff, AlertCircle, CheckCircle2, Upload, Info, Plus,
 } from "lucide-react";
 import { DatePicker } from "./DatePicker";
 import type { CommsController } from "./useCommsController";
@@ -161,7 +161,7 @@ export function CommsToolbar({ ctl, title = "Posts", compact = false, showItemAc
         className={`flex items-center gap-1.5 h-7 text-white font-medium rounded-[4px] transition-colors shadow-sm text-[12px] flex-none ${compact ? "w-7 justify-center px-0" : "px-3"}`}
         style={{ background: "var(--wb-blue)" }}
       >
-        {!compact && "Post New"}
+        {compact ? <Plus size={15} /> : "Post New"}
       </button>
 
       {showItemActions && (
