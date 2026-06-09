@@ -48,7 +48,7 @@ export function TopBar({ menuOpen = false, onToggleNav }: TopBarProps) {
         {/* Left: hamburger + logo — fixed 240px to match sidebar width */}
         <div
           className="flex items-center flex-none relative transition-colors"
-          style={{ width: 240, gap: "20px", paddingLeft: 24, paddingRight: 16, zIndex: 2, background: menuOpen ? "rgba(255,255,255,0.08)" : "transparent" }}
+          style={{ width: 240, gap: "20px", paddingLeft: 24, paddingRight: 16, zIndex: 2 }}
         >
           <button
             onClick={() => onToggleNav?.()}
