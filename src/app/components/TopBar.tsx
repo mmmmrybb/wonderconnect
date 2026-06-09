@@ -67,15 +67,17 @@ export function TopBar({ menuOpen = false, onToggleNav }: TopBarProps) {
 
         {/* Right: language + profile */}
         <div className="flex items-center flex-none" style={{ gap: "20px", paddingLeft: 16, paddingRight: 24 }}>
-          <div className="flex items-center gap-1.5 text-[13px] leading-none select-none" style={{ color: "#FFFFFF" }}>
+          <div className="flex items-center gap-1.5 leading-none select-none" style={{ color: "#FFFFFF", fontSize: 13 }}>
             <button
               onClick={() => setLang("EN")}
               className={`cursor-pointer ${lang === "EN" ? "font-semibold underline" : "font-normal opacity-70 hover:opacity-100"}`}
+              style={{ fontSize: 13 }}
             >EN</button>
-            <span className="opacity-40">|</span>
+            <span className="opacity-40" style={{ fontSize: 13 }}>|</span>
             <button
               onClick={() => setLang("FR")}
               className={`cursor-pointer ${lang === "FR" ? "font-semibold underline" : "font-normal opacity-70 hover:opacity-100"}`}
+              style={{ fontSize: 13 }}
             >FR</button>
           </div>
           <ProfileAvatar />
