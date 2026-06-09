@@ -38,17 +38,15 @@ export function TopBar({ menuOpen = false, onToggleNav }: TopBarProps) {
   return (
     <div className="flex-none z-50 relative">
       <div
-        className="relative flex items-center justify-between px-6"
+        className="relative flex items-center"
         style={{
           background: "#133356",
           height: "44px",
           borderBottom: "1px solid rgba(255,255,255,0.12)",
-          gap: "12px",
-          padding: "0 24px",
         }}
       >
         {/* Left: hamburger + logo */}
-        <div className="flex items-center flex-none relative" style={{ gap: "20px", width: "192px", zIndex: 2 }}>
+        <div className="flex items-center flex-none relative" style={{ gap: "20px", paddingLeft: 24, paddingRight: 16, zIndex: 2 }}>
           <button
             onClick={() => onToggleNav?.()}
             className={`w-[28px] h-[28px] flex-none flex items-center justify-center rounded-[6px] transition-colors ${
@@ -67,7 +65,7 @@ export function TopBar({ menuOpen = false, onToggleNav }: TopBarProps) {
         <NotificationBanner inline />
 
         {/* Right: language + profile */}
-        <div className="flex items-center flex-none" style={{ gap: "20px" }}>
+        <div className="flex items-center flex-none" style={{ gap: "20px", paddingLeft: 16, paddingRight: 24 }}>
           <div className="flex items-center gap-1.5 text-[13px] leading-none select-none" style={{ color: "#FFFFFF" }}>
             <button
               onClick={() => setLang("EN")}
