@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { DatePicker } from "./DatePicker";
-import { Edit2, Trash2, ChevronLeft, X, Plus } from "lucide-react";
+import { MdEdit, MdDeleteOutline, MdKeyboardArrowLeft, MdClose, MdAdd } from "react-icons/md";
 
 interface Announcement {
   id: string;
@@ -109,7 +109,7 @@ export function NotificationBanner({ inline = false }: NotificationBannerProps) 
                 className="flex items-center gap-1.5 px-2.5 py-1 rounded-[3px] shadow-sm cursor-pointer text-[11px] font-semibold transition-opacity"
                 style={{ background: "rgba(255,255,255,0.92)", color: "var(--wb-announce-ink)" }}
               >
-                <Edit2 size={11} />
+                <MdEdit size={11} />
                 Edit
               </button>
             </div>
@@ -191,11 +191,11 @@ function AnnouncementModal({
           <>
             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
               <h2 className="font-semibold text-[16px] text-gray-900">Announcements</h2>
-              <button onClick={onClose} className="text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"><X size={18} /></button>
+              <button onClick={onClose} className="text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"><MdClose size={18} /></button>
             </div>
             <div className="px-6 pt-5 pb-4 flex flex-col gap-2.5">
               <button onClick={onOpenNew} className="flex gap-1.5 items-center cursor-pointer mb-1 text-[12px] font-medium" style={{ color: "#1D7AFC" }}>
-                <Plus size={18} style={{ color: "#1D7AFC" }} />
+                <MdAdd size={18} style={{ color: "#1D7AFC" }} />
                 Create New
               </button>
               {announcements.map((ann, idx) => (
@@ -204,11 +204,11 @@ function AnnouncementModal({
                     <h3 className="font-semibold text-[#0c111d] text-[16px]">Announcement {idx + 1}</h3>
                     <div className="flex items-center gap-4 ml-auto">
                       <button onClick={() => onOpenEditor(ann)} className="hover:opacity-70 transition-opacity cursor-pointer" title="Edit">
-                        <Edit2 size={18} style={{ color: "#1D7AFC" }} />
+                        <MdEdit size={18} style={{ color: "#1D7AFC" }} />
                       </button>
                       {announcements.length > 1 && (
                         <button onClick={() => onDelete(ann.id)} className="hover:opacity-70 transition-opacity cursor-pointer" title="Delete">
-                          <Trash2 size={18} style={{ color: "#E71616" }} />
+                          <MdDeleteOutline size={18} style={{ color: "#E71616" }} />
                         </button>
                       )}
                     </div>
@@ -226,13 +226,13 @@ function AnnouncementModal({
             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
               <div className="flex items-center gap-3">
                 <button onClick={onBack} className="hover:opacity-70 transition-opacity cursor-pointer">
-                  <ChevronLeft size={24} style={{ color: "#1C1B1F" }} />
+                  <MdKeyboardArrowLeft size={24} style={{ color: "#1C1B1F" }} />
                 </button>
                 <h2 className="font-semibold text-[16px] text-gray-900">
                   {editingId === "new" ? "New Announcement" : "Edit Announcement"}
                 </h2>
               </div>
-              <button onClick={onClose} className="text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"><X size={18} /></button>
+              <button onClick={onClose} className="text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"><MdClose size={18} /></button>
             </div>
             <div className="px-6 py-5 flex flex-col gap-4">
               <div className="flex flex-col gap-1.5">

@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import {
-  Search, X, Filter, Mail, MailOpen, Trash2, Check, ChevronDown, ChevronUp,
-  ChevronsLeft, ChevronsRight, ChevronLeft, ChevronRight,
-  EyeOff, AlertCircle, CheckCircle2, Upload, Info, Plus,
-} from "lucide-react";
+  MdSearch, MdClose, MdFilterList, MdMailOutline, MdDrafts, MdDeleteOutline, MdCheck, MdKeyboardArrowDown, MdKeyboardArrowUp,
+  MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight, MdKeyboardArrowLeft, MdKeyboardArrowRight,
+  MdVisibilityOff, MdError, MdCheckCircle, MdUpload, MdInfo, MdEditNote, MdAdd,
+} from "react-icons/md";
 import { DatePicker } from "./DatePicker";
 import type { CommsController } from "./useCommsController";
 import { PP_DEFAULT_FILTER, ppExpiryStatus, PP_TODAY } from "./useCommsController";
@@ -38,8 +38,8 @@ export function StatusFlags({ post, size = 13, className = "" }: { post: Post; s
   if (!post.isUrgent && !post.isConfidential) return null;
   return (
     <span className={`inline-flex items-center gap-1 ${className}`}>
-      {post.isConfidential && <EyeOff size={size} className="text-amber-500" title="Confidential" />}
-      {post.isUrgent && <AlertCircle size={size} className="text-red-500" title="Urgent" />}
+      {post.isConfidential && <MdVisibilityOff size={size} className="text-amber-500" title="Confidential" />}
+      {post.isUrgent && <MdError size={size} className="text-red-500" title="Urgent" />}
     </span>
   );
 }
@@ -126,7 +126,7 @@ export function FilterPanel({ filterState, onApply, onClear, onClose, counts = {
           className={`flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[12px] font-medium border transition-colors ${
             local.hideExpired ? "bg-blue-50 text-blue-600 border-blue-200" : "text-gray-600 border-gray-200 hover:bg-gray-50"
           }`}>
-          {local.hideExpired && <Check size={13} />}
+          {local.hideExpired && <MdCheck size={13} />}
           Hide expired communications
         </button>
       </div>
@@ -161,7 +161,7 @@ export function CommsToolbar({ ctl, title = "Posts", compact = false, showItemAc
         className={`flex items-center gap-1.5 h-7 text-white font-medium rounded-[4px] transition-colors shadow-sm text-[12px] flex-none ${compact ? "w-7 justify-center px-0" : "px-3"}`}
         style={{ background: "var(--wb-blue)" }}
       >
-        {compact ? <Plus size={15} /> : "Post New"}
+        {compact ? <MdEditNote size={18} /> : "Post New"}
       </button>
 
       {showItemActions && (
@@ -173,8 +173,8 @@ export function CommsToolbar({ ctl, title = "Posts", compact = false, showItemAc
           className={`w-7 h-7 flex items-center justify-center rounded-[4px] transition-colors flex-none ${hasTarget ? "text-gray-500 hover:bg-gray-100 hover:text-gray-700 cursor-pointer" : "text-gray-300 cursor-default"}`}
         >
           {ctl.selectedIds.size > 0
-            ? ctl.allSelRead ? <MailOpen size={16} /> : <Mail size={16} />
-            : ctl.currentSelectedPost?.isRead ? <MailOpen size={18} /> : <Mail size={18} />}
+            ? ctl.allSelRead ? <MdDrafts size={16} /> : <MdMailOutline size={16} />
+            : ctl.currentSelectedPost?.isRead ? <MdDrafts size={18} /> : <MdMailOutline size={18} />}
         </button>
       )}
 
@@ -186,7 +186,7 @@ export function CommsToolbar({ ctl, title = "Posts", compact = false, showItemAc
           }}
           className={`w-7 h-7 flex items-center justify-center rounded-[4px] transition-colors flex-none ${hasTarget ? "text-gray-500 hover:bg-red-50 hover:text-red-600 cursor-pointer" : "text-gray-300 cursor-default"}`}
         >
-          <Trash2 size={18} />
+          <MdDeleteOutline size={18} />
         </button>
       )}
 
@@ -194,10 +194,10 @@ export function CommsToolbar({ ctl, title = "Posts", compact = false, showItemAc
 
       <div className={`relative ${compact ? "flex-1 min-w-0" : "flex-none"}`}>
         <div className={`flex items-center gap-1.5 h-[30px] border border-gray-200 rounded-[4px] px-2 ${compact ? "w-full" : "w-44"}`} style={{ background: "white" }}>
-          <Search size={14} className="text-gray-400 flex-none" />
+          <MdSearch size={14} className="text-gray-400 flex-none" />
           <input type="text" placeholder="Search…" value={ctl.search} onChange={(e) => ctl.setSearch(e.target.value)}
             className="flex-1 min-w-0 text-[12px] outline-none bg-transparent placeholder:text-gray-400" />
-          {ctl.search && <button onClick={() => ctl.setSearch("")} className="text-gray-400 hover:text-gray-600 shrink-0"><X size={13} /></button>}
+          {ctl.search && <button onClick={() => ctl.setSearch("")} className="text-gray-400 hover:text-gray-600 shrink-0"><MdClose size={13} /></button>}
         </div>
       </div>
 
@@ -210,7 +210,7 @@ export function CommsToolbar({ ctl, title = "Posts", compact = false, showItemAc
             ctl.showFilter || ctl.activeFilterCount > 0 ? "bg-blue-50 text-blue-700 border-blue-200" : "text-gray-500 border-transparent hover:bg-gray-100 hover:text-gray-700"
           }`}
         >
-          <Filter size={16} />
+          <MdFilterList size={16} />
           {ctl.activeFilterCount > 0 && (
             <span className="text-white text-[10px] rounded-full px-1.5 py-0.5 font-semibold min-w-[16px] text-center leading-none" style={{ background: "var(--wb-blue)" }}>
               {ctl.activeFilterCount}
@@ -239,8 +239,8 @@ export function CommsPagination({ ctl }: { ctl: CommsController }) {
   return (
     <div className="flex-none px-4 border-t border-gray-200 bg-white flex items-center gap-2" style={{ height: 48 }}>
       <div className="flex-1 flex items-center gap-1">
-        <button onClick={() => ctl.setCurrentPage(1)} disabled={page === 1} className="w-5 h-7 flex items-center justify-center rounded hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed text-gray-500"><ChevronsLeft size={14} /></button>
-        <button onClick={() => ctl.setCurrentPage((p) => Math.max(1, p - 1))} disabled={page === 1} className="w-5 h-7 flex items-center justify-center rounded hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed text-gray-500"><ChevronLeft size={14} /></button>
+        <button onClick={() => ctl.setCurrentPage(1)} disabled={page === 1} className="w-5 h-7 flex items-center justify-center rounded hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed text-gray-500"><MdKeyboardDoubleArrowLeft size={14} /></button>
+        <button onClick={() => ctl.setCurrentPage((p) => Math.max(1, p - 1))} disabled={page === 1} className="w-5 h-7 flex items-center justify-center rounded hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed text-gray-500"><MdKeyboardArrowLeft size={14} /></button>
         {Array.from({ length: totalPages }, (_, i) => i + 1)
           .filter((p) => p === 1 || p === totalPages || Math.abs(p - page) <= 1)
           .reduce((acc: (number | string)[], p, i, arr) => { if (i > 0 && (arr[i - 1] as number) && p - (arr[i - 1] as number) > 1) acc.push("…"); acc.push(p); return acc; }, [])
@@ -251,8 +251,8 @@ export function CommsPagination({ ctl }: { ctl: CommsController }) {
                   className={`w-5 h-7 rounded text-xs font-medium transition-colors ${page === item ? "text-white" : "text-gray-600 hover:bg-gray-100"}`}
                   style={page === item ? { background: "var(--wb-blue)" } : undefined}>{item}</button>
           )}
-        <button onClick={() => ctl.setCurrentPage((p) => Math.min(totalPages, p + 1))} disabled={page === totalPages} className="w-5 h-7 flex items-center justify-center rounded hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed text-gray-500"><ChevronRight size={14} /></button>
-        <button onClick={() => ctl.setCurrentPage(totalPages)} disabled={page === totalPages} className="w-5 h-7 flex items-center justify-center rounded hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed text-gray-500"><ChevronsRight size={14} /></button>
+        <button onClick={() => ctl.setCurrentPage((p) => Math.min(totalPages, p + 1))} disabled={page === totalPages} className="w-5 h-7 flex items-center justify-center rounded hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed text-gray-500"><MdKeyboardArrowRight size={14} /></button>
+        <button onClick={() => ctl.setCurrentPage(totalPages)} disabled={page === totalPages} className="w-5 h-7 flex items-center justify-center rounded hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed text-gray-500"><MdKeyboardDoubleArrowRight size={14} /></button>
         <span className="text-xs text-gray-400 ml-2">{filtered.length} results</span>
       </div>
       <div className="flex items-center gap-1.5">
@@ -271,7 +271,7 @@ export function CommsPagination({ ctl }: { ctl: CommsController }) {
 export function CommsEmpty({ ctl, compact = false }: { ctl: CommsController; compact?: boolean }) {
   return (
     <div className="flex flex-col items-center justify-center gap-2 text-gray-400 py-16">
-      <Search size={compact ? 26 : 32} />
+      <MdSearch size={compact ? 26 : 32} />
       <p className="text-sm font-medium">No posts found</p>
       <p className="text-xs">Try adjusting your search or filters</p>
       {(ctl.search || ctl.activeFilterCount > 0) && (
@@ -323,7 +323,7 @@ function AudienceMultiSelect({ label, options, selected, onChange, disabled }: {
         {selected.map((val) => (
           <span key={val} className="flex items-center gap-1 text-[11px] font-medium rounded-full px-2 py-0.5" style={{ background: "var(--wb-blue-50)", color: "var(--wb-blue)" }}>
             {val}
-            <button onClick={(e) => removeTag(val, e)}><X size={12} /></button>
+            <button onClick={(e) => removeTag(val, e)}><MdClose size={12} /></button>
           </span>
         ))}
         <input ref={inputRef} type="text" value={search} onChange={(e) => { setSearch(e.target.value); if (!open) setOpen(true); }}
@@ -331,7 +331,7 @@ function AudienceMultiSelect({ label, options, selected, onChange, disabled }: {
           placeholder={selected.length === 0 ? `Select ${label.toLowerCase()}…` : ""}
           className="flex-1 min-w-[60px] outline-none text-[12.5px] placeholder:text-gray-400 bg-transparent"
           onClick={(e) => e.stopPropagation()} disabled={disabled} />
-        <ChevronDown size={14} className={`text-gray-400 shrink-0 transition-transform ${open ? "rotate-180" : ""}`} />
+        <MdKeyboardArrowDown size={14} className={`text-gray-400 shrink-0 transition-transform ${open ? "rotate-180" : ""}`} />
       </div>
       {open && !disabled && (
         <div className="absolute z-[9999] left-0 right-0 mt-1 max-h-48 overflow-y-auto bg-white border border-gray-200 rounded-[8px] shadow-lg">

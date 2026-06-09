@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ZoomIn, ZoomOut, Download, Maximize2, Minimize2, X, FileText } from "lucide-react";
+import { MdZoomIn, MdZoomOut, MdFileDownload, MdOpenInFull, MdCloseFullscreen, MdClose, MdDescription } from "react-icons/md";
 import type { Post } from "./CommunicationsPage";
 import { ppFormatDate } from "./useCommsController";
 
@@ -94,17 +94,17 @@ function PreviewHeader({ post, zoom, setZoom, fullscreen, setFullscreen, onClose
         <div className={`flex items-center gap-1 flex-none transition-opacity ${titleHover ? "hidden" : ""}`}>
           {post && (
             <>
-              <button onClick={() => setZoom((z) => Math.max(50, z - 25))} disabled={zoom <= 50} className="w-7 h-7 flex items-center justify-center rounded hover:bg-gray-100 text-gray-500 disabled:opacity-30 transition-colors" title="Zoom out"><ZoomOut size={15} /></button>
+              <button onClick={() => setZoom((z) => Math.max(50, z - 25))} disabled={zoom <= 50} className="w-7 h-7 flex items-center justify-center rounded hover:bg-gray-100 text-gray-500 disabled:opacity-30 transition-colors" title="Zoom out"><MdZoomOut size={15} /></button>
               <span className="text-xs text-gray-500 min-w-[36px] text-center">{zoom}%</span>
-              <button onClick={() => setZoom((z) => Math.min(200, z + 25))} disabled={zoom >= 200} className="w-7 h-7 flex items-center justify-center rounded hover:bg-gray-100 text-gray-500 disabled:opacity-30 transition-colors" title="Zoom in"><ZoomIn size={15} /></button>
+              <button onClick={() => setZoom((z) => Math.min(200, z + 25))} disabled={zoom >= 200} className="w-7 h-7 flex items-center justify-center rounded hover:bg-gray-100 text-gray-500 disabled:opacity-30 transition-colors" title="Zoom in"><MdZoomIn size={15} /></button>
               <div className="w-px h-4 bg-gray-200 mx-1" />
-              <button onClick={() => psDownload(post)} className="w-7 h-7 flex items-center justify-center rounded hover:bg-gray-100 text-gray-500 transition-colors" title="Download"><Download size={15} /></button>
+              <button onClick={() => psDownload(post)} className="w-7 h-7 flex items-center justify-center rounded hover:bg-gray-100 text-gray-500 transition-colors" title="Download"><MdFileDownload size={15} /></button>
             </>
           )}
           <button onClick={() => setFullscreen((v) => !v)} className="w-7 h-7 flex items-center justify-center rounded hover:bg-gray-100 text-gray-500 transition-colors" title={fullscreen ? "Exit full page" : "Expand to full page"}>
-            {fullscreen ? <Minimize2 size={15} /> : <Maximize2 size={15} />}
+            {fullscreen ? <MdCloseFullscreen size={15} /> : <MdOpenInFull size={15} />}
           </button>
-          {onClose && <button onClick={onClose} className="w-7 h-7 flex items-center justify-center rounded hover:bg-gray-100 text-gray-500 transition-colors ml-0.5" title="Close preview"><X size={15} /></button>}
+          {onClose && <button onClick={onClose} className="w-7 h-7 flex items-center justify-center rounded hover:bg-gray-100 text-gray-500 transition-colors ml-0.5" title="Close preview"><MdClose size={15} /></button>}
         </div>
       </div>
     </div>
@@ -116,7 +116,7 @@ function PreviewBody({ post, zoom }: { post: Post | null; zoom: number }) {
     <div className="flex-1 overflow-auto flex flex-col items-center py-4 px-3 gap-3 bg-gray-100">
       {!post
         ? <div className="flex-1 flex flex-col items-center justify-center text-center gap-3">
-            <div className="w-16 h-16 rounded-2xl bg-gray-200/80 flex items-center justify-center"><FileText size={28} className="text-gray-400" /></div>
+            <div className="w-16 h-16 rounded-2xl bg-gray-200/80 flex items-center justify-center"><MdDescription size={28} className="text-gray-400" /></div>
             <div>
               <p className="text-sm font-medium text-gray-500">No file selected</p>
               <p className="text-xs text-gray-400 mt-0.5">Click a post to preview it here</p>

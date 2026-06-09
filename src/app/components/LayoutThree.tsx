@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import {
-  PanelLeftClose, PanelLeftOpen, ArrowUpDown, Edit, Check,
-  Mail, MailOpen, Trash2, ChevronRight, EyeOff,
-} from "lucide-react";
+  MdMenuOpen, MdMenu, MdSwapVert, MdEdit, MdCheck,
+  MdMailOutline, MdDrafts, MdDeleteOutline, MdKeyboardArrowRight, MdVisibilityOff,
+} from "react-icons/md";
 import type { CommsController } from "./useCommsController";
 import { PP_TODAY, ppFormatDate, ppExpiryStatus } from "./useCommsController";
 import { CommsToolbar, CommsPagination, CommsEmpty, ExpiryPill } from "./commsShared";
@@ -72,7 +72,7 @@ function CategoryRail({ posts, activeCategory, onCategoryChange, onCollapse }: {
         <p className="text-[11px] font-semibold uppercase tracking-[0.8px] text-gray-400" style={{ fontFamily: "Roboto", fontWeight: 400 }}>COMMUNICATIONS</p>
         <button onClick={onCollapse} title="Hide categories"
           className="w-6 h-6 flex-none flex items-center justify-center rounded-[4px] text-gray-400 hover:bg-gray-100 hover:text-gray-700 transition-colors">
-          <PanelLeftClose size={17} />
+          <MdMenuOpen size={17} />
         </button>
       </div>
       <div className="flex flex-col">
@@ -107,7 +107,7 @@ function CollapsedRail({ onExpand }: { onExpand: () => void }) {
       className="flex-none w-9 flex flex-col items-center hover:bg-gray-100 transition-colors cursor-pointer"
       style={{ height: "100%", borderRight: "1px solid var(--wb-line-2)", background: "rgb(246,246,246)" }}>
       <span className="w-7 h-7 mt-3 flex-none flex items-center justify-center rounded-[4px]" style={{ color: "var(--wb-blue)" }}>
-        <PanelLeftOpen size={18} />
+        <MdMenu size={18} />
       </span>
     </button>
   );
@@ -140,7 +140,7 @@ function ListSortMenu({ ctl }: { ctl: CommsController }) {
         style={open ? { background: "var(--wb-blue-50)" } : undefined}
         title="Sort"
       >
-        <ArrowUpDown size={16} />
+        <MdSwapVert size={16} />
       </button>
       {open && (
         <div className="absolute z-[40] right-0 mt-1 w-44 bg-white border border-gray-200 rounded-[8px] shadow-lg overflow-hidden">
@@ -183,7 +183,7 @@ function PostRow({ post, ctl }: { post: Post; ctl: CommsController }) {
             isSelected ? "border-blue-600" : "border-gray-300 hover:border-blue-400"
           }`}
           style={isSelected ? { background: "var(--wb-blue)" } : undefined}>
-          {isSelected && <Check size={10} className="text-white" />}
+          {isSelected && <MdCheck size={10} className="text-white" />}
         </div>
       )}
 
@@ -194,7 +194,7 @@ function PostRow({ post, ctl }: { post: Post; ctl: CommsController }) {
           }`}
           style={post.isRead && !post.isUrgent ? { color: "#6a7282" } : undefined}
         >
-          {post.isConfidential && <EyeOff size={13} className="flex-none text-amber-500" title="Confidential" />}
+          {post.isConfidential && <MdVisibilityOff size={13} className="flex-none text-amber-500" title="Confidential" />}
           <span className="truncate">{post.fileName}</span>
         </p>
         <div className="mt-1 flex items-center gap-1.5 flex-wrap">
@@ -208,7 +208,7 @@ function PostRow({ post, ctl }: { post: Post; ctl: CommsController }) {
       <button onClick={(e) => { e.stopPropagation(); ctl.setEditingPost(post); ctl.setShowPostDialog(true); }} title="Edit"
         className="flex-none w-6 h-6 flex items-center justify-center rounded hover:bg-gray-100 opacity-0 group-hover:opacity-100 transition-all"
         style={{ color: "var(--wb-blue)" }}>
-        <Edit size={16} />
+        <MdEdit size={16} />
       </button>
     </div>
   );
@@ -285,7 +285,7 @@ export function LayoutThree({ ctl, posts, activeCategory, onCategoryChange }: La
                 <div className={`w-4 h-4 rounded border-2 flex items-center justify-center transition-all ${
                   ctl.allSelected ? "border-blue-600" : ctl.someSelected ? "border-blue-400" : "border-gray-300 hover:border-blue-400"
                 }`} style={ctl.allSelected ? { background: "var(--wb-blue)" } : ctl.someSelected ? { background: "var(--wb-blue-100)" } : undefined}>
-                  {ctl.allSelected && <Check size={10} className="text-white" />}
+                  {ctl.allSelected && <MdCheck size={10} className="text-white" />}
                   {ctl.someSelected && !ctl.allSelected && <div className="w-2 h-0.5 bg-blue-600" />}
                 </div>
                 <span className="text-xs text-gray-500">{ctl.selectedIds.size > 0 ? `${ctl.selectedIds.size} selected` : "Select all"}</span>
@@ -312,14 +312,14 @@ export function LayoutThree({ ctl, posts, activeCategory, onCategoryChange }: La
                   disabled={!hasTarget}
                   className={`w-7 h-7 flex items-center justify-center rounded-[4px] transition-colors flex-none ${hasTarget ? "text-gray-500 hover:bg-gray-200 hover:text-gray-700 cursor-pointer" : "text-gray-300 cursor-default"}`}
                 >
-                  {isRead ? <MailOpen size={16} /> : <Mail size={16} />}
+                  {isRead ? <MdDrafts size={16} /> : <MdMailOutline size={16} />}
                 </button>
                 <button
                   onClick={() => { if (bulk) ctl.setShowBulkDelete(true); else if (ctl.currentSelectedPost) ctl.setDeleteTarget(ctl.currentSelectedPost.id); }}
                   disabled={!hasTarget}
                   className={`w-7 h-7 flex items-center justify-center rounded-[4px] transition-colors flex-none ${hasTarget ? "text-gray-500 hover:bg-red-50 hover:text-red-700 cursor-pointer" : "text-gray-300 cursor-default"}`}
                 >
-                  <Trash2 size={16} />
+                  <MdDeleteOutline size={16} />
                 </button>
               </>
             );
@@ -337,7 +337,7 @@ export function LayoutThree({ ctl, posts, activeCategory, onCategoryChange }: La
                   <button onClick={() => toggleGroup(g.key)}
                     className="sticky top-0 z-[1] w-full flex items-center gap-1.5 px-3 py-1.5 border-b text-left hover:bg-gray-100 transition-colors"
                     style={{ borderColor: "var(--wb-line)", background: "var(--wb-zebra)" }}>
-                    <ChevronRight size={16} className="text-gray-400 transition-transform" style={{ transform: isCollapsed ? "none" : "rotate(90deg)" }} />
+                    <MdKeyboardArrowRight size={16} className="text-gray-400 transition-transform" style={{ transform: isCollapsed ? "none" : "rotate(90deg)" }} />
                     <span className="text-[11px] font-semibold uppercase tracking-[0.6px] text-gray-500">{g.label}</span>
                     <span className="text-[10px] font-medium text-gray-400">{g.items.length}</span>
                   </button>

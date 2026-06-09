@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu } from "lucide-react";
+import { MdMenu } from "react-icons/md";
 import { NotificationBanner } from "./NotificationBanner";
 import pfpImg from "../../assets/pfp.png";
 
@@ -54,7 +54,7 @@ export function TopBar({ menuOpen = false, onToggleNav }: TopBarProps) {
             className="w-[28px] h-[28px] flex-none flex items-center justify-center rounded-[6px] transition-colors hover:bg-white/10"
             title={menuOpen ? "Close menu" : "Open menu"}
           >
-            <Menu size={22} style={{ color: "#FFFFFF" }} />
+            <MdMenu size={22} style={{ color: "#FFFFFF" }} />
           </button>
           <div className="flex-none">
             <WonderConnectLogo />
