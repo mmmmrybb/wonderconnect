@@ -82,7 +82,7 @@ function CategoryRail({ posts, activeCategory, onCategoryChange, onCollapse }: {
           return (
             <button key={cat} onClick={() => onCategoryChange(cat)}
               className={`relative flex items-center justify-between gap-2 text-left text-[12.5px] transition-colors ${
-                active ? "font-medium" : "text-gray-600 hover:bg-gray-50 hover:text-gray-900 font-normal"
+                active ? "font-medium" : "text-gray-600 hover:bg-white hover:text-gray-900 font-normal"
               }`}
               style={{ padding: "0 8px 0 12px", height: 40, background: active ? "var(--wb-blue-50)" : undefined, color: active ? "var(--wb-blue)" : undefined }}
             >
