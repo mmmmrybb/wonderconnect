@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { MdMenu } from "react-icons/md";
 import { NotificationBanner } from "./NotificationBanner";
 import pfpImg from "../../assets/pfp.png";
+import menuCloseImg from "../../assets/menu-close.svg";
+import menuOpenImg from "../../assets/menu-open.svg";
 
 function WonderConnectLogo() {
   return (
@@ -54,7 +55,7 @@ export function TopBar({ menuOpen = false, onToggleNav }: TopBarProps) {
             className="w-[28px] h-[28px] flex-none flex items-center justify-center rounded-[6px] transition-colors hover:bg-white/10"
             title={menuOpen ? "Close menu" : "Open menu"}
           >
-            <MdMenu size={22} style={{ color: "#FFFFFF" }} />
+            <img src={menuOpen ? menuOpenImg : menuCloseImg} alt="Menu" style={{ width: 24, height: 24 }} />
           </button>
           <div className="flex-none">
             <WonderConnectLogo />
