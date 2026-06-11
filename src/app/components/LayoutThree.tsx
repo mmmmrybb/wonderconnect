@@ -143,17 +143,20 @@ function ListSortMenu({ ctl }: { ctl: CommsController }) {
         <MdSwapVert size={18} />
       </button>
       {open && (
-        <div className="absolute z-[40] right-0 mt-1 w-44 bg-white border border-gray-200 rounded-[8px] shadow-lg overflow-hidden">
-          {L3_SORTS.map((s) => (
-            <div key={s.key} onClick={() => ctl.handleSort(s.key)}
-              className={`flex items-center gap-2 px-3 py-2 cursor-pointer text-[13px] hover:bg-gray-50 transition-colors ${ctl.sortKey === s.key ? "bg-blue-50" : ""}`}
-              style={{ color: ctl.sortKey === s.key ? "var(--wb-blue)" : "var(--wb-ink-700)" }}>
-              <span className="w-3.5 flex-none text-center text-[11px]">
-                {ctl.sortKey === s.key ? (ctl.sortDir === "asc" ? "↑" : "↓") : ""}
-              </span>
-              <span>{s.label}</span>
-            </div>
-          ))}
+        <div className="absolute z-[40] right-0 mt-1 w-48 bg-white border border-gray-200 rounded-[10px] shadow-xl overflow-hidden py-1">
+          {L3_SORTS.map((s) => {
+            const active = ctl.sortKey === s.key;
+            return (
+              <div key={s.key} onClick={() => ctl.handleSort(s.key)}
+                className={`flex items-center gap-2.5 px-3 py-2.5 cursor-pointer text-[13px] transition-colors ${active ? "bg-blue-50" : "hover:bg-gray-50"}`}
+                style={{ color: active ? "var(--wb-blue)" : "var(--wb-ink-700)" }}>
+                <span className="w-4 flex-none flex items-center">
+                  {active && <MdCheck size={15} style={{ color: "var(--wb-blue)" }} />}
+                </span>
+                <span className={active ? "font-semibold" : "font-normal"}>{s.label}</span>
+              </div>
+            );
+          })}
         </div>
       )}
     </div>
