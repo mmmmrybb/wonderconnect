@@ -331,7 +331,7 @@ function AudienceMultiSelect({ label, options, selected, onChange, disabled }: {
           placeholder={selected.length === 0 ? `Select ${label.toLowerCase()}…` : ""}
           className="flex-1 min-w-[60px] outline-none text-[12.5px] placeholder:text-gray-400 bg-transparent"
           onClick={(e) => e.stopPropagation()} disabled={disabled} />
-        <ChevronDown size={14} className={`text-gray-400 shrink-0 transition-transform ${open ? "rotate-180" : ""}`} />
+        <MdKeyboardArrowDown size={14} className={`text-gray-400 shrink-0 transition-transform ${open ? "rotate-180" : ""}`} />
       </div>
       {open && !disabled && (
         <div className="absolute z-[9999] left-0 right-0 mt-1 max-h-48 overflow-y-auto bg-white border border-gray-200 rounded-[8px] shadow-lg">
@@ -344,7 +344,7 @@ function AudienceMultiSelect({ label, options, selected, onChange, disabled }: {
                   className={`flex items-center gap-2 px-3 py-2 cursor-pointer text-[13px] hover:bg-gray-50 transition-colors ${isChecked ? "bg-blue-50" : ""}`}
                   style={{ color: isChecked ? "var(--wb-blue)" : "var(--wb-ink-700)" }}>
                   <div className={`w-3.5 h-3.5 rounded flex items-center justify-center border transition-all ${isChecked ? "border-blue-600" : "border-gray-300"}`} style={isChecked ? { background: "var(--wb-blue)" } : undefined}>
-                    {isChecked && <Check size={9} className="text-white" />}
+                    {isChecked && <MdCheck size={9} className="text-white" />}
                   </div>
                   <span>{option}</span>
                 </div>
@@ -372,7 +372,7 @@ function CategoryDropdown({ value, onChange }: { value: string; onChange: (v: st
         className={`h-[34px] flex items-center justify-between cursor-pointer px-2 rounded-[4px] border ${open ? "border-blue-400 bg-white" : "border-transparent"}`}
         style={{ background: open ? "white" : "var(--wb-field-bg)", borderBottom: open ? undefined : "1px solid var(--wb-line)" }}>
         <span className="text-[12.5px]" style={{ color: "var(--wb-ink-700)" }}>{value}</span>
-        <ChevronDown size={14} className={`text-gray-400 shrink-0 transition-transform ${open ? "rotate-180" : ""}`} />
+        <MdKeyboardArrowDown size={14} className={`text-gray-400 shrink-0 transition-transform ${open ? "rotate-180" : ""}`} />
       </div>
       {open && (
         <div className="absolute z-[9999] left-0 right-0 mt-1 max-h-48 overflow-y-auto bg-white border border-gray-200 rounded-[8px] shadow-lg">
@@ -380,7 +380,7 @@ function CategoryDropdown({ value, onChange }: { value: string; onChange: (v: st
             <div key={cat} onClick={() => { onChange(cat); setOpen(false); }}
               className={`flex items-center gap-2 px-3 py-2 cursor-pointer text-[13px] hover:bg-gray-50 transition-colors ${value === cat ? "bg-blue-50" : ""}`}
               style={{ color: value === cat ? "var(--wb-blue)" : "var(--wb-ink-700)" }}>
-              <span className="w-3.5 flex-none flex items-center justify-center">{value === cat && <Check size={14} style={{ color: "var(--wb-blue)" }} />}</span>
+              <span className="w-3.5 flex-none flex items-center justify-center">{value === cat && <MdCheck size={14} style={{ color: "var(--wb-blue)" }} />}</span>
               <span>{cat}</span>
             </div>
           ))}
