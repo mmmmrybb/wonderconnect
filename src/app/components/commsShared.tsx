@@ -173,7 +173,7 @@ export function CommsToolbar({ ctl, title = "Posts", compact = false, showItemAc
           className={`w-7 h-7 flex items-center justify-center rounded-[4px] transition-colors flex-none ${hasTarget ? "text-gray-500 hover:bg-gray-100 hover:text-gray-700 cursor-pointer" : "text-gray-300 cursor-default"}`}
         >
           {ctl.selectedIds.size > 0
-            ? ctl.allSelRead ? <MdDrafts size={16} /> : <MdMailOutline size={16} />
+            ? ctl.allSelRead ? <MdDrafts size={18} /> : <MdMailOutline size={18} />
             : ctl.currentSelectedPost?.isRead ? <MdDrafts size={18} /> : <MdMailOutline size={18} />}
         </button>
       )}
@@ -210,7 +210,7 @@ export function CommsToolbar({ ctl, title = "Posts", compact = false, showItemAc
             ctl.showFilter || ctl.activeFilterCount > 0 ? "bg-blue-50 text-blue-700 border-blue-200" : "text-gray-500 border-transparent hover:bg-gray-100 hover:text-gray-700"
           }`}
         >
-          <MdFilterList size={16} />
+          <MdFilterList size={18} />
           {ctl.activeFilterCount > 0 && (
             <span className="text-white text-[10px] rounded-full px-1.5 py-0.5 font-semibold min-w-[16px] text-center leading-none" style={{ background: "var(--wb-blue)" }}>
               {ctl.activeFilterCount}

@@ -140,7 +140,7 @@ function ListSortMenu({ ctl }: { ctl: CommsController }) {
         style={open ? { background: "var(--wb-blue-50)" } : undefined}
         title="Sort"
       >
-        <MdSwapVert size={16} />
+        <MdSwapVert size={18} />
       </button>
       {open && (
         <div className="absolute z-[40] right-0 mt-1 w-44 bg-white border border-gray-200 rounded-[8px] shadow-lg overflow-hidden">
