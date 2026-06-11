@@ -514,13 +514,13 @@ export function PostDialog({ isOpen, onClose, editingPost, onSave }: PostDialogP
           <div className="grid grid-cols-2 gap-3.5">
             <div className="flex flex-col gap-1.5">
               <label className="text-[12px] font-medium" style={{ color: "var(--wb-ink-400)", fontFamily: "Roboto" }}>Priority <span style={{ color: "var(--wb-red)", fontWeight: 700 }}>*</span></label>
-              <div className="flex items-center border border-gray-200 rounded-full p-1 gap-1 bg-white" style={{ height: 40 }}>
+              <div className="flex items-center border border-gray-200 rounded-[6px] p-1 gap-1 bg-white" style={{ height: 40 }}>
                 <button type="button" onClick={() => setIsUrgent(false)}
-                  className={`flex-1 h-full flex items-center justify-center rounded-full text-[12px] font-medium transition-colors ${!isUrgent ? "bg-blue-50 text-blue-600" : "text-gray-400 hover:text-gray-600"}`}>
+                  className={`flex-1 h-full flex items-center justify-center rounded-[4px] text-[12px] font-medium transition-colors ${!isUrgent ? "bg-blue-50 text-blue-600" : "text-gray-400 hover:text-gray-600"}`}>
                   Non-Urgent
                 </button>
                 <button type="button" onClick={() => setIsUrgent(true)}
-                  className={`flex-1 h-full flex items-center justify-center gap-1.5 rounded-full text-[12px] font-medium transition-colors ${isUrgent ? "bg-red-50 text-red-500" : "text-gray-400 hover:text-gray-600"}`}>
+                  className={`flex-1 h-full flex items-center justify-center gap-1.5 rounded-[4px] text-[12px] font-medium transition-colors ${isUrgent ? "bg-red-50 text-red-500" : "text-gray-400 hover:text-gray-600"}`}>
                   <MdError size={14} />Urgent
                 </button>
               </div>
@@ -528,13 +528,13 @@ export function PostDialog({ isOpen, onClose, editingPost, onSave }: PostDialogP
             </div>
             <div className="flex flex-col gap-1.5">
               <label className="text-[12px] font-medium" style={{ color: "var(--wb-ink-400)", fontFamily: "Roboto" }}>File Type <span style={{ color: "var(--wb-red)", fontWeight: 700 }}>*</span></label>
-              <div className="flex items-center border border-gray-200 rounded-full p-1 gap-1 bg-white" style={{ height: 40 }}>
+              <div className="flex items-center border border-gray-200 rounded-[6px] p-1 gap-1 bg-white" style={{ height: 40 }}>
                 <button type="button" onClick={() => setIsConfidential(false)}
-                  className={`flex-1 h-full flex items-center justify-center rounded-full text-[12px] font-medium transition-colors ${!isConfidential ? "bg-blue-50 text-blue-600" : "text-gray-400 hover:text-gray-600"}`}>
+                  className={`flex-1 h-full flex items-center justify-center rounded-[4px] text-[12px] font-medium transition-colors ${!isConfidential ? "bg-blue-50 text-blue-600" : "text-gray-400 hover:text-gray-600"}`}>
                   General
                 </button>
                 <button type="button" onClick={() => setIsConfidential(true)}
-                  className={`flex-1 h-full flex items-center justify-center gap-1.5 rounded-full text-[12px] font-medium transition-colors ${isConfidential ? "bg-amber-50 text-amber-700" : "text-gray-400 hover:text-gray-600"}`}>
+                  className={`flex-1 h-full flex items-center justify-center gap-1.5 rounded-[4px] text-[12px] font-medium transition-colors ${isConfidential ? "bg-amber-50 text-amber-700" : "text-gray-400 hover:text-gray-600"}`}>
                   <MdVisibilityOff size={14} />Confidential
                 </button>
               </div>
