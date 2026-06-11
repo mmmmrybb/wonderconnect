@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import {
   MdSearch, MdClose, MdFilterList, MdMailOutline, MdDrafts, MdDeleteOutline, MdCheck, MdKeyboardArrowDown, MdKeyboardArrowUp,
   MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight, MdKeyboardArrowLeft, MdKeyboardArrowRight,
-  MdVisibilityOff, MdError, MdCheckCircle, MdUpload, MdInfo, MdNoteAdd, MdAdd,
+  MdVisibilityOff, MdError, MdCheckCircle, MdUpload, MdInfo, MdEditNote, MdAdd,
 } from "react-icons/md";
 import { DatePicker } from "./DatePicker";
 import type { CommsController } from "./useCommsController";
@@ -161,7 +161,7 @@ export function CommsToolbar({ ctl, title = "Posts", compact = false, showItemAc
         className={`flex items-center gap-1.5 h-7 text-white font-medium rounded-[4px] transition-colors shadow-sm text-[12px] flex-none ${compact ? "w-7 justify-center px-0" : "px-3"}`}
         style={{ background: "var(--wb-blue)" }}
       >
-        {compact ? <MdNoteAdd size={18} /> : "Post New"}
+        {compact ? <MdEditNote size={18} /> : "Post New"}
       </button>
 
       {showItemActions && (
