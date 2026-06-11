@@ -312,14 +312,14 @@ export function LayoutThree({ ctl, posts, activeCategory, onCategoryChange }: La
                   disabled={!hasTarget}
                   className={`w-7 h-7 flex items-center justify-center rounded-[4px] transition-colors flex-none ${hasTarget ? "text-gray-500 hover:bg-gray-200 hover:text-gray-700 cursor-pointer" : "text-gray-300 cursor-default"}`}
                 >
-                  {isRead ? <MdDrafts size={16} /> : <MdMailOutline size={16} />}
+                  {isRead ? <MdDrafts size={18} /> : <MdMailOutline size={18} />}
                 </button>
                 <button
                   onClick={() => { if (bulk) ctl.setShowBulkDelete(true); else if (ctl.currentSelectedPost) ctl.setDeleteTarget(ctl.currentSelectedPost.id); }}
                   disabled={!hasTarget}
                   className={`w-7 h-7 flex items-center justify-center rounded-[4px] transition-colors flex-none ${hasTarget ? "text-gray-500 hover:bg-red-50 hover:text-red-700 cursor-pointer" : "text-gray-300 cursor-default"}`}
                 >
-                  <MdDeleteOutline size={16} />
+                  <MdDeleteOutline size={18} />
                 </button>
               </>
             );
