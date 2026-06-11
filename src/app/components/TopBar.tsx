@@ -55,7 +55,7 @@ export function TopBar({ menuOpen = false, onToggleNav }: TopBarProps) {
             className="w-[28px] h-[28px] flex-none flex items-center justify-center rounded-[6px] transition-colors hover:bg-white/10"
             title={menuOpen ? "Close menu" : "Open menu"}
           >
-            <img src={menuOpen ? menuOpenImg : menuCloseImg} alt="Menu" style={{ width: 24, height: 24 }} />
+            <img src={menuOpen ? menuOpenImg : menuCloseImg} alt="Menu" style={{ width: 28, height: 28 }} />
           </button>
           <div className="flex-none">
             <WonderConnectLogo />
