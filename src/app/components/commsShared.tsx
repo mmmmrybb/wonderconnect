@@ -512,33 +512,33 @@ export function PostDialog({ isOpen, onClose, editingPost, onSave }: PostDialogP
 
           {/* Priority + File Type */}
           <div className="grid grid-cols-2 gap-3.5">
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-1.5">
               <label className="text-[12px] font-medium" style={{ color: "var(--wb-ink-400)", fontFamily: "Roboto" }}>Priority <span style={{ color: "var(--wb-red)", fontWeight: 700 }}>*</span></label>
-              <div className="flex border border-gray-200 rounded-[6px] overflow-hidden" style={{ height: 34 }}>
+              <div className="flex items-center border border-gray-200 rounded-full p-1 gap-1 bg-white" style={{ height: 40 }}>
                 <button type="button" onClick={() => setIsUrgent(false)}
-                  className={`flex-1 text-[12px] font-medium transition-colors ${!isUrgent ? "text-white" : "text-gray-500 hover:bg-gray-50"}`}
-                  style={!isUrgent ? { background: "var(--wb-blue)" } : { background: "white" }}>Non-Urgent</button>
+                  className={`flex-1 h-full flex items-center justify-center rounded-full text-[12px] font-medium transition-colors ${!isUrgent ? "bg-blue-50 text-blue-600" : "text-gray-400 hover:text-gray-600"}`}>
+                  Non-Urgent
+                </button>
                 <button type="button" onClick={() => setIsUrgent(true)}
-                  className={`flex-1 flex items-center justify-center gap-1 text-[12px] font-medium transition-colors ${isUrgent ? "text-white" : "text-gray-500 hover:bg-gray-50"}`}
-                  style={isUrgent ? { background: "var(--wb-red)" } : { background: "white" }}>
-                  <MdError size={13} />Urgent
+                  className={`flex-1 h-full flex items-center justify-center gap-1.5 rounded-full text-[12px] font-medium transition-colors ${isUrgent ? "bg-red-50 text-red-500" : "text-gray-400 hover:text-gray-600"}`}>
+                  <MdError size={14} />Urgent
                 </button>
               </div>
-              {isUrgent && <p className="text-[10.5px] flex items-center gap-1" style={{ color: "var(--wb-red)" }}><MdError size={10} />Highlighted in red</p>}
+              {isUrgent && <p className="text-[11px] flex items-center gap-1" style={{ color: "var(--wb-red)" }}><MdError size={12} />This post will be highlighted in red</p>}
             </div>
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-1.5">
               <label className="text-[12px] font-medium" style={{ color: "var(--wb-ink-400)", fontFamily: "Roboto" }}>File Type <span style={{ color: "var(--wb-red)", fontWeight: 700 }}>*</span></label>
-              <div className="flex border border-gray-200 rounded-[6px] overflow-hidden" style={{ height: 34 }}>
+              <div className="flex items-center border border-gray-200 rounded-full p-1 gap-1 bg-white" style={{ height: 40 }}>
                 <button type="button" onClick={() => setIsConfidential(false)}
-                  className={`flex-1 text-[12px] font-medium transition-colors ${!isConfidential ? "text-white" : "text-gray-500 hover:bg-gray-50"}`}
-                  style={!isConfidential ? { background: "var(--wb-blue)" } : { background: "white" }}>General</button>
+                  className={`flex-1 h-full flex items-center justify-center rounded-full text-[12px] font-medium transition-colors ${!isConfidential ? "bg-blue-50 text-blue-600" : "text-gray-400 hover:text-gray-600"}`}>
+                  General
+                </button>
                 <button type="button" onClick={() => setIsConfidential(true)}
-                  className={`flex-1 flex items-center justify-center gap-1 text-[12px] font-medium transition-colors ${isConfidential ? "text-white" : "text-gray-500 hover:bg-gray-50"}`}
-                  style={isConfidential ? { background: "var(--wb-amber)" } : { background: "white" }}>
-                  <MdVisibilityOff size={13} />Confidential
+                  className={`flex-1 h-full flex items-center justify-center gap-1.5 rounded-full text-[12px] font-medium transition-colors ${isConfidential ? "bg-amber-50 text-amber-700" : "text-gray-400 hover:text-gray-600"}`}>
+                  <MdVisibilityOff size={14} />Confidential
                 </button>
               </div>
-              {isConfidential && <p className="text-[10.5px] flex items-center gap-1" style={{ color: "var(--wb-amber-ink)" }}><MdVisibilityOff size={10} />Only ID owner has access</p>}
+              {isConfidential && <p className="text-[11px] flex items-center gap-1" style={{ color: "var(--wb-amber-ink)" }}><MdVisibilityOff size={12} />Only ID owner has access to confidential files</p>}
             </div>
           </div>
 
