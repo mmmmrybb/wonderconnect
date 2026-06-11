@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import {
   MdMenuOpen, MdMenu, MdSwapVert, MdEdit, MdCheck,
-  MdMailOutline, MdDrafts, MdDeleteOutline, MdKeyboardArrowRight, MdVisibilityOff,
+  MdMailOutline, MdDrafts, MdDeleteOutline, MdKeyboardArrowRight, MdKeyboardArrowUp, MdKeyboardArrowDown, MdVisibilityOff,
 } from "react-icons/md";
 import type { CommsController } from "./useCommsController";
 import { PP_TODAY, ppFormatDate, ppExpiryStatus } from "./useCommsController";
@@ -67,7 +67,7 @@ function CategoryRail({ posts, activeCategory, onCategoryChange, onCollapse }: {
     cat === "All" ? posts.filter((p) => !p.isRead).length : posts.filter((p) => !p.isRead && p.category === cat).length;
 
   return (
-    <div className="flex-none w-[200px] bg-white border-r flex flex-col overflow-y-auto" style={{ borderColor: "var(--wb-line-2)" }}>
+    <div className="flex-none w-[200px] bg-gray-100 border-r flex flex-col overflow-y-auto" style={{ borderColor: "var(--wb-line-2)" }}>
       <div className="flex items-center justify-between border-b px-3" style={{ borderColor: "var(--wb-line-2)", height: 48, padding: "0 8px 0 12px" }}>
         <p className="text-[11px] font-semibold uppercase tracking-[0.8px] text-gray-400" style={{ fontFamily: "Roboto", fontWeight: 400 }}>COMMUNICATIONS</p>
         <button onClick={onCollapse} title="Hide categories"
@@ -143,15 +143,15 @@ function ListSortMenu({ ctl }: { ctl: CommsController }) {
         <MdSwapVert size={18} />
       </button>
       {open && (
-        <div className="absolute z-[40] right-0 mt-1 w-48 bg-white border border-gray-200 rounded-[10px] shadow-xl overflow-hidden py-1">
+        <div className="absolute z-[40] right-0 mt-1 w-48 bg-white border border-gray-200 rounded-[10px] shadow-xl py-1.5 flex flex-col gap-0.5 px-1.5">
           {L3_SORTS.map((s) => {
             const active = ctl.sortKey === s.key;
             return (
               <div key={s.key} onClick={() => ctl.handleSort(s.key)}
-                className={`flex items-center gap-2.5 px-3 py-2.5 cursor-pointer text-[13px] transition-colors ${active ? "bg-blue-50" : "hover:bg-gray-50"}`}
+                className={`flex items-center gap-2 px-2.5 py-2 cursor-pointer text-[13px] transition-colors rounded-[6px] ${active ? "bg-blue-50" : "hover:bg-gray-50"}`}
                 style={{ color: active ? "var(--wb-blue)" : "var(--wb-ink-700)" }}>
-                <span className="w-4 flex-none flex items-center">
-                  {active && <MdCheck size={15} style={{ color: "var(--wb-blue)" }} />}
+                <span className="w-4 flex-none flex items-center justify-center">
+                  {active && (ctl.sortDir === "asc" ? <MdKeyboardArrowUp size={16} style={{ color: "var(--wb-blue)" }} /> : <MdKeyboardArrowDown size={16} style={{ color: "var(--wb-blue)" }} />)}
                 </span>
                 <span className={active ? "font-semibold" : "font-normal"}>{s.label}</span>
               </div>
