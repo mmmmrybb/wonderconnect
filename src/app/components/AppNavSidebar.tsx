@@ -97,7 +97,7 @@ function SidebarItem({
           )}
         </span>
         <span
-          className={`text-[14px] flex-1 text-left leading-tight ${active ? "font-semibold" : "font-medium"}`}
+          className={`text-[14px] flex-1 text-left leading-tight ${active ? "font-medium" : "font-normal"}`}
           style={{ color: active ? "#5499FE" : "rgba(255,255,255,0.92)" }}
         >
           {app.name}
