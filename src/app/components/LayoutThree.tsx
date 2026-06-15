@@ -193,7 +193,7 @@ function PostRow({ post, ctl }: { post: Post; ctl: CommsController }) {
       <div className="flex-1 min-w-0">
         <p
           className={`flex items-center gap-1.5 text-[13px] leading-snug ${
-            post.isUrgent ? (!post.isRead ? "font-semibold text-red-600" : "font-medium") : (!post.isRead ? "font-semibold text-gray-900" : "font-medium")
+            post.isUrgent ? (!post.isRead ? "font-semibold text-red-600" : "font-normal") : (!post.isRead ? "font-semibold text-gray-900" : "font-normal")
           }`}
           style={post.isRead && !post.isUrgent ? { color: "#6a7282" } : undefined}
         >
