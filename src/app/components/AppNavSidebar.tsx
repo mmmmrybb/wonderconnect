@@ -91,7 +91,7 @@ function SidebarItem({
           {app.isHome ? (
             <WonderConnectHomeIcon />
           ) : (
-            <span style={{ color: active ? "#5499FE" : "rgba(255,255,255,0.85)" }}>
+            <span className="inline-flex items-center justify-center" style={{ color: active ? "#5499FE" : "rgba(255,255,255,0.85)" }}>
               {app.icon}
             </span>
           )}
