@@ -148,7 +148,7 @@ function ListSortMenu({ ctl }: { ctl: CommsController }) {
             const active = ctl.sortKey === s.key;
             return (
               <div key={s.key} onClick={() => ctl.handleSort(s.key)}
-                className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-[13px] transition-colors rounded-[6px] ${active ? "bg-blue-50" : "hover:bg-gray-50"}`}
+                className={`flex items-center gap-2 pl-2 pr-4 py-2 cursor-pointer text-[13px] transition-colors rounded-[6px] ${active ? "bg-blue-50" : "hover:bg-gray-50"}`}
                 style={{ color: active ? "var(--wb-blue)" : "var(--wb-ink-700)" }}>
                 <span className="w-4 flex-none flex items-center justify-center">
                   {active && (ctl.sortDir === "asc" ? <MdKeyboardArrowUp size={16} style={{ color: "var(--wb-blue)" }} /> : <MdKeyboardArrowDown size={16} style={{ color: "var(--wb-blue)" }} />)}
