@@ -42,6 +42,10 @@ function IconInfoOutline({ size = 11, className = "", style }: { size?: number; 
   return <span className={`material-icons-outlined leading-none ${className}`} style={{ fontSize: size, ...style }}>info</span>;
 }
 
+function IconVisibilityOffOutline({ size = 14, className = "", style }: { size?: number; className?: string; style?: React.CSSProperties }) {
+  return <span className={`material-icons-outlined leading-none ${className}`} style={{ fontSize: size, ...style }}>visibility_off</span>;
+}
+
 export function StatusFlags({ post, size = 13, className = "" }: { post: Post; size?: number; className?: string }) {
   if (!post.isUrgent && !post.isConfidential) return null;
   return (
@@ -543,10 +547,10 @@ export function PostDialog({ isOpen, onClose, editingPost, onSave }: PostDialogP
                 </button>
                 <button type="button" onClick={() => setIsConfidential(true)}
                   className={`flex-1 h-full flex items-center justify-center gap-1.5 rounded-[4px] text-[12px] font-medium transition-colors ${isConfidential ? "bg-amber-50 text-amber-700" : "text-gray-400 hover:text-gray-600"}`}>
-                  <MdVisibilityOff size={14} />Confidential
+                  <IconVisibilityOffOutline size={14} />Confidential
                 </button>
               </div>
-              {isConfidential && <p className="text-[11px] flex items-center gap-1" style={{ color: "var(--wb-amber-ink)" }}><MdVisibilityOff size={12} />Only ID owner has access to confidential files</p>}
+              {isConfidential && <p className="text-[11px] flex items-center gap-1" style={{ color: "var(--wb-amber-ink)" }}><IconVisibilityOffOutline size={12} />Only ID owner has access to confidential files</p>}
             </div>
           </div>
 
