@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
 const sym = (name: string) => (
-  <span className="material-symbols-sharp leading-none" style={{ fontSize: 20, fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}>{name}</span>
+  <span className="material-symbols-sharp leading-none" style={{ fontSize: 22, fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}>{name}</span>
 );
 
 interface AppItem {
