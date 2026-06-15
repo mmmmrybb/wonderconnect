@@ -37,7 +37,9 @@ export function ExpiryPill({ date }: { date: string }) {
 const symbolStyle = { fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24" };
 
 function IconErrorOutline({ size = 14, className = "", style }: { size?: number; className?: string; style?: React.CSSProperties }) {
-  return <span className={`material-symbols-sharp select-none leading-none ${className}`} style={{ fontSize: size, ...symbolStyle, ...style }}>error</span>;
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} style={style}><path fill="none" d="M0 0h24v24H0z"/><path d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg>
+  );
 }
 
 function IconInfoOutline({ size = 11, className = "", style }: { size?: number; className?: string; style?: React.CSSProperties }) {
@@ -538,7 +540,7 @@ export function PostDialog({ isOpen, onClose, editingPost, onSave }: PostDialogP
                   <IconErrorOutline size={14} />Urgent
                 </button>
               </div>
-              {isUrgent && <p className="text-[11px] flex items-center gap-1" style={{ color: "var(--wb-red)" }}><IconErrorOutline size={12} />This post will be highlighted in red</p>}
+              {isUrgent && <p className="text-[11px] flex items-center gap-1" style={{ color: "var(--wb-red)" }}><IconErrorOutline size={12} />This post title will be highlighted in red</p>}
             </div>
             <div className="flex flex-col gap-1.5">
               <label className="text-[12px] font-medium" style={{ color: "var(--wb-ink-400)", fontFamily: "Roboto" }}>File Type <span style={{ color: "var(--wb-red)", fontWeight: 700 }}>*</span></label>
