@@ -36,7 +36,7 @@ const FEATURED_APPS: AppItem[] = [
   { name: "Smart Order", icon: sym("shopping_cart") },
   { name: "Features", icon: sym("local_offer") },
   { name: "Statements", icon: sym("description") },
-  { name: "Communications", icon: sym("chat_bubble") },
+  { name: "Communications", icon: sym("forum") },
   { name: "User Admin", icon: sym("folder_supervised") },
   { name: "Business Dashboard", icon: sym("bar_chart"), subItems: ["Sales Overview", "Inventory", "Analytics", "Reports"] },
   { name: "Franchisee Admin", icon: sym("tenancy") },
