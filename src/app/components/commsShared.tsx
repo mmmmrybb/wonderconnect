@@ -514,7 +514,7 @@ export function PostDialog({ isOpen, onClose, editingPost, onSave }: PostDialogP
           <div className="grid grid-cols-2 gap-3.5">
             <div className="flex flex-col gap-1.5">
               <label className="text-[12px] font-medium" style={{ color: "var(--wb-ink-400)", fontFamily: "Roboto" }}>Priority <span style={{ color: "var(--wb-red)", fontWeight: 700 }}>*</span></label>
-              <div className="flex items-center border border-gray-200 rounded-[6px] p-1 gap-1 bg-white" style={{ height: 40 }}>
+              <div className="flex items-center border border-gray-200 rounded-[6px] p-0.5 gap-0.5 bg-white" style={{ height: 40 }}>
                 <button type="button" onClick={() => setIsUrgent(false)}
                   className={`flex-1 h-full flex items-center justify-center rounded-[4px] text-[12px] font-medium transition-colors ${!isUrgent ? "bg-blue-50 text-blue-600" : "text-gray-400 hover:text-gray-600"}`}>
                   Non-Urgent
@@ -528,7 +528,7 @@ export function PostDialog({ isOpen, onClose, editingPost, onSave }: PostDialogP
             </div>
             <div className="flex flex-col gap-1.5">
               <label className="text-[12px] font-medium" style={{ color: "var(--wb-ink-400)", fontFamily: "Roboto" }}>File Type <span style={{ color: "var(--wb-red)", fontWeight: 700 }}>*</span></label>
-              <div className="flex items-center border border-gray-200 rounded-[6px] p-1 gap-1 bg-white" style={{ height: 40 }}>
+              <div className="flex items-center border border-gray-200 rounded-[6px] p-0.5 gap-0.5 bg-white" style={{ height: 40 }}>
                 <button type="button" onClick={() => setIsConfidential(false)}
                   className={`flex-1 h-full flex items-center justify-center rounded-[4px] text-[12px] font-medium transition-colors ${!isConfidential ? "bg-blue-50 text-blue-600" : "text-gray-400 hover:text-gray-600"}`}>
                   General
