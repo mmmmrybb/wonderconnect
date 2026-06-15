@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import {
   MdSearch, MdClose, MdFilterList, MdMailOutline, MdDrafts, MdDeleteOutline, MdCheck, MdKeyboardArrowDown, MdKeyboardArrowUp,
   MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight, MdKeyboardArrowLeft, MdKeyboardArrowRight,
-  MdVisibilityOff, MdErrorOutlineOutline, MdCheckCircle, MdUpload, MdInfoOutlineOutline, MdEditNote, MdAdd,
+  MdVisibilityOff, MdOutlineErrorOutline, MdCheckCircle, MdUpload, MdOutlineInfoOutline, MdEditNote, MdAdd,
 } from "react-icons/md";
 import { DatePicker } from "./DatePicker";
 import type { CommsController } from "./useCommsController";
@@ -39,7 +39,7 @@ export function StatusFlags({ post, size = 13, className = "" }: { post: Post; s
   return (
     <span className={`inline-flex items-center gap-1 ${className}`}>
       {post.isConfidential && <MdVisibilityOff size={size} className="text-amber-500" title="Confidential" />}
-      {post.isUrgent && <MdErrorOutline size={size} className="text-red-500" title="Urgent" />}
+      {post.isUrgent && <MdOutlineError size={size} className="text-red-500" title="Urgent" />}
     </span>
   );
 }
@@ -521,10 +521,10 @@ export function PostDialog({ isOpen, onClose, editingPost, onSave }: PostDialogP
                 </button>
                 <button type="button" onClick={() => setIsUrgent(true)}
                   className={`flex-1 h-full flex items-center justify-center gap-1.5 rounded-[4px] text-[12px] font-medium transition-colors ${isUrgent ? "bg-red-50 text-red-500" : "text-gray-400 hover:text-gray-600"}`}>
-                  <MdErrorOutline size={14} />Urgent
+                  <MdOutlineError size={14} />Urgent
                 </button>
               </div>
-              {isUrgent && <p className="text-[11px] flex items-center gap-1" style={{ color: "var(--wb-red)" }}><MdErrorOutline size={12} />This post will be highlighted in red</p>}
+              {isUrgent && <p className="text-[11px] flex items-center gap-1" style={{ color: "var(--wb-red)" }}><MdOutlineError size={12} />This post will be highlighted in red</p>}
             </div>
             <div className="flex flex-col gap-1.5">
               <label className="text-[12px] font-medium" style={{ color: "var(--wb-ink-400)", fontFamily: "Roboto" }}>File Type <span style={{ color: "var(--wb-red)", fontWeight: 700 }}>*</span></label>
@@ -549,7 +549,7 @@ export function PostDialog({ isOpen, onClose, editingPost, onSave }: PostDialogP
           </div>
           <div className="flex flex-col gap-1">
             <p className="text-[10.5px] flex items-center gap-1" style={{ color: "var(--wb-red)" }}>
-              <MdInfoOutline size={11} />You may select one option from Region, Location, Route, or Depot, with or without banners
+              <MdOutlineInfo size={11} />You may select one option from Region, Location, Route, or Depot, with or without banners
             </p>
             <div className="flex flex-col gap-3 mt-2">
               {["Region", "Location", "Route", "Depot", "Banner"].map((field) => {
