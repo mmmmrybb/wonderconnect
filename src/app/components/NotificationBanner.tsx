@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { DatePicker } from "./DatePicker";
 import { MdEdit, MdDeleteOutline, MdKeyboardArrowLeft, MdClose, MdAdd } from "react-icons/md";
 
 interface Announcement {
@@ -268,12 +267,16 @@ function AnnouncementModal({
               <div className="flex gap-4">
                 <div className="flex-1 flex flex-col gap-1.5">
                   <label className="text-gray-700 text-[14px]">Posting Date <span className="text-red-500">*</span></label>
-                  <DatePicker value={form.postingDate} onChange={(val) => { setForm((f) => ({ ...f, postingDate: val })); setErrors((er) => ({ ...er, postingDate: false })); }} placeholder="Select posting date" hasError={!!errors.postingDate} />
+                  <input type="date" value={form.postingDate} onChange={(e) => { setForm((f) => ({ ...f, postingDate: e.target.value })); setErrors((er) => ({ ...er, postingDate: false })); }}
+                    className={`h-[34px] w-full border rounded-[4px] px-2 text-[13px] outline-0 focus:border-blue-400 transition-colors ${errors.postingDate ? "border-red-400" : "border-gray-300"}`}
+                    style={{ background: "#F1F4F8" }} />
                   {errors.postingDate && <span className="text-[11px] text-red-500">This field is required</span>}
                 </div>
                 <div className="flex-1 flex flex-col gap-1.5">
                   <label className="text-gray-700 text-[14px]">Expiration Date <span className="text-red-500">*</span></label>
-                  <DatePicker value={form.expirationDate} onChange={(val) => { setForm((f) => ({ ...f, expirationDate: val })); setErrors((er) => ({ ...er, expirationDate: false })); }} placeholder="Select expiration date" hasError={!!errors.expirationDate} />
+                  <input type="date" value={form.expirationDate} onChange={(e) => { setForm((f) => ({ ...f, expirationDate: e.target.value })); setErrors((er) => ({ ...er, expirationDate: false })); }}
+                    className={`h-[34px] w-full border rounded-[4px] px-2 text-[13px] outline-0 focus:border-blue-400 transition-colors ${errors.expirationDate ? "border-red-400" : "border-gray-300"}`}
+                    style={{ background: "#F1F4F8" }} />
                   {errors.expirationDate && <span className="text-[11px] text-red-500">This field is required</span>}
                 </div>
               </div>
