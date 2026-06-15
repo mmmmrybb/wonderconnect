@@ -143,7 +143,7 @@ function ListSortMenu({ ctl }: { ctl: CommsController }) {
         <MdSwapVert size={18} />
       </button>
       {open && (
-        <div className="absolute z-[40] right-0 mt-1 w-48 bg-white border border-gray-200 rounded-[10px] shadow-xl p-1 flex flex-col gap-0.5">
+        <div className="absolute z-[40] right-0 mt-1 w-auto min-w-max bg-white border border-gray-200 rounded-[10px] shadow-xl p-1 flex flex-col gap-0.5">
           {L3_SORTS.map((s) => {
             const active = ctl.sortKey === s.key;
             return (
