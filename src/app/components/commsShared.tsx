@@ -334,7 +334,7 @@ function AudienceMultiSelect({ label, options, selected, onChange, disabled }: {
       <div
         onClick={() => { if (!disabled) setOpen(true); }}
         className={`flex items-center flex-wrap gap-1 min-h-[34px] h-auto w-full border rounded-[4px] px-2 py-1 ${disabled ? "opacity-50 cursor-not-allowed" : "cursor-text"} ${open ? "border-blue-400 bg-white" : "border-transparent"}`}
-        style={{ background: "var(--wb-field-bg)", borderBottom: open ? undefined : "1px solid var(--wb-line)", boxShadow: open ? "var(--wb-focus-ring)" : undefined }}
+        style={{ background: open || selected.length > 0 ? "white" : "var(--wb-field-bg)", borderBottom: open ? undefined : "1px solid var(--wb-line)", boxShadow: open ? "var(--wb-focus-ring)" : undefined }}
       >
         {selected.map((val) => (
           <span key={val} className="flex items-center gap-1 text-[11px] font-medium rounded-full px-2 py-0.5" style={{ background: "var(--wb-blue-50)", color: "var(--wb-blue)" }}>
