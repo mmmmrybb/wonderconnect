@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import {
-  MdShoppingCart, MdLocalOffer, MdDescription, MdChatBubbleOutline, MdVerified,
-  MdTrendingUp, MdShare, MdMailOutline, MdKeyboardArrowDown,
-} from "react-icons/md";
+import { MdKeyboardArrowDown } from "react-icons/md";
+
+const sym = (name: string) => (
+  <span className="material-symbols-sharp leading-none" style={{ fontSize: 20, fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}>{name}</span>
+);
 
 interface AppItem {
   name: string;
@@ -32,14 +33,14 @@ const WonderConnectHomeIcon = () => (
 
 const FEATURED_APPS: AppItem[] = [
   { name: "WonderConnect", isHome: true },
-  { name: "Smart Order", icon: <MdShoppingCart size={18} /> },
-  { name: "Features", icon: <MdLocalOffer size={18} /> },
-  { name: "Statements", icon: <MdDescription size={18} /> },
-  { name: "Communications", icon: <MdChatBubbleOutline size={18} /> },
-  { name: "User Admin", icon: <MdVerified size={18} /> },
-  { name: "Business Dashboard", icon: <MdTrendingUp size={18} />, subItems: ["Sales Overview", "Inventory", "Analytics", "Reports"] },
-  { name: "Franchisee Admin", icon: <MdShare size={18} /> },
-  { name: "Email", icon: <MdMailOutline size={18} /> },
+  { name: "Smart Order", icon: sym("shopping_cart") },
+  { name: "Features", icon: sym("local_offer") },
+  { name: "Statements", icon: sym("description") },
+  { name: "Communications", icon: sym("chat_bubble") },
+  { name: "User Admin", icon: sym("verified") },
+  { name: "Business Dashboard", icon: sym("trending_up"), subItems: ["Sales Overview", "Inventory", "Analytics", "Reports"] },
+  { name: "Franchisee Admin", icon: sym("share") },
+  { name: "Email", icon: sym("mail") },
 ];
 
 const COMING_SOON = [
