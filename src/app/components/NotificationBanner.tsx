@@ -245,6 +245,7 @@ function AnnouncementModal({
                   onChange={(e) => { if (e.target.value.length <= 100) { setForm((f) => ({ ...f, english: e.target.value })); setErrors((er) => ({ ...er, english: false })); } }}
                   maxLength={100} rows={3}
                   className={`w-full rounded-[4px] border ${errors.english ? "border-red-400" : "border-gray-300"} px-3 py-2 text-[13px] text-gray-800 resize-y focus:outline-none focus:border-gray-400 transition-colors`}
+                  style={{ background: "#F1F4F8" }}
                   placeholder="Enter English announcement..."
                 />
                 {errors.english && <span className="text-[11px] text-red-500">This field is required</span>}
@@ -259,6 +260,7 @@ function AnnouncementModal({
                   onChange={(e) => { if (e.target.value.length <= 100) { setForm((f) => ({ ...f, french: e.target.value })); setErrors((er) => ({ ...er, french: false })); } }}
                   maxLength={100} rows={3}
                   className={`w-full rounded-[4px] border ${errors.french ? "border-red-400" : "border-gray-300"} px-3 py-2 text-[13px] text-gray-800 resize-y focus:outline-none focus:border-gray-400 transition-colors`}
+                  style={{ background: "#F1F4F8" }}
                   placeholder="Entrez l'annonce en français..."
                 />
                 {errors.french && <span className="text-[11px] text-red-500">This field is required</span>}

@@ -97,7 +97,8 @@ export function DatePicker({ value, onChange, placeholder = "Select date", hasEr
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className={`w-full rounded-[4px] border ${hasError ? "border-red-400" : "border-gray-300"} px-3 py-2 text-[13px] font-['Poppins'] text-gray-800 focus:outline-none focus:border-gray-400 transition-colors flex items-center justify-between gap-2 cursor-pointer bg-white text-left`}
+        className={`w-full rounded-[4px] border ${hasError ? "border-red-400" : "border-gray-300"} px-3 py-2 text-[13px] font-['Poppins'] text-gray-800 focus:outline-none focus:border-gray-400 transition-colors flex items-center justify-between gap-2 cursor-pointer text-left`}
+        style={{ background: "#F1F4F8" }}
       >
         <span className={value ? "text-gray-800" : "text-gray-400"}>
           {value ? formatDisplay(value) : placeholder}
