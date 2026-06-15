@@ -34,7 +34,7 @@ const WonderConnectHomeIcon = () => (
 const FEATURED_APPS: AppItem[] = [
   { name: "WonderConnect", isHome: true },
   { name: "Smart Order", icon: sym("shopping_cart") },
-  { name: "Features", icon: sym("local_offer") },
+  { name: "Features", icon: sym("percent_discount") },
   { name: "Statements", icon: sym("description") },
   { name: "Communications", icon: sym("forum") },
   { name: "User Admin", icon: sym("folder_supervised") },
