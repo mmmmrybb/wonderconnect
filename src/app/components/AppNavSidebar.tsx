@@ -39,7 +39,7 @@ const FEATURED_APPS: AppItem[] = [
   { name: "Communications", icon: sym("chat_bubble") },
   { name: "User Admin", icon: sym("manage_accounts") },
   { name: "Business Dashboard", icon: sym("bar_chart"), subItems: ["Sales Overview", "Inventory", "Analytics", "Reports"] },
-  { name: "Franchisee Admin", icon: sym("account_tree") },
+  { name: "Franchisee Admin", icon: sym("tenancy") },
   { name: "Email", icon: sym("mail") },
 ];
 
