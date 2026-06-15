@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import {
   MdSearch, MdClose, MdFilterList, MdMailOutline, MdDrafts, MdDeleteOutline, MdCheck, MdKeyboardArrowDown, MdKeyboardArrowUp,
   MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight, MdKeyboardArrowLeft, MdKeyboardArrowRight,
-  MdVisibilityOff, MdErrorOutline, MdCheckCircle, MdUpload, MdInfoOutline, MdEditNote, MdAdd,
+  MdVisibilityOff, MdError, MdCheckCircle, MdUpload, MdInfo, MdEditNote, MdAdd,
 } from "react-icons/md";
 import { DatePicker } from "./DatePicker";
 import type { CommsController } from "./useCommsController";
