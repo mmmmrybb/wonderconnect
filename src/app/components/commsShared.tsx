@@ -467,6 +467,7 @@ export function PostDialog({ isOpen, onClose, editingPost, onSave }: PostDialogP
         <div className="max-h-[70vh] overflow-y-auto px-5 py-4 flex flex-col gap-4">
           {/* Section header */}
           <div className="flex items-center gap-3">
+            <div className="flex-1 h-px" style={{ background: "var(--wb-line)" }} />
             <span className="text-[11px] font-semibold uppercase tracking-[0.8px] text-gray-400" style={{ fontFamily: "Roboto" }}>Details</span>
             <div className="flex-1 h-px" style={{ background: "var(--wb-line)" }} />
           </div>
@@ -560,6 +561,7 @@ export function PostDialog({ isOpen, onClose, editingPost, onSave }: PostDialogP
 
           {/* Audience */}
           <div className="flex items-center gap-3">
+            <div className="flex-1 h-px" style={{ background: "var(--wb-line)" }} />
             <span className="text-[11px] font-semibold uppercase tracking-[0.8px] text-gray-400" style={{ fontFamily: "Roboto" }}>Audience</span>
             <div className="flex-1 h-px" style={{ background: "var(--wb-line)" }} />
           </div>
