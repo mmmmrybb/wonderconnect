@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import {
   MdSearch, MdClose, MdFilterList, MdMailOutline, MdDrafts, MdDeleteOutline, MdCheck, MdKeyboardArrowDown, MdKeyboardArrowUp,
   MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight, MdKeyboardArrowLeft, MdKeyboardArrowRight,
-  MdVisibilityOff, MdError, MdCheckCircle, MdUpload, MdInfo, MdEditNote, MdAdd,
+  MdVisibilityOff, MdCheckCircle, MdUpload, MdEditNote, MdAdd,
 } from "react-icons/md";
 import { DatePicker } from "./DatePicker";
 import type { CommsController } from "./useCommsController";
@@ -34,12 +34,30 @@ export function ExpiryPill({ date }: { date: string }) {
   );
 }
 
+function IconErrorOutline({ size = 14, className = "", style }: { size?: number; className?: string; style?: React.CSSProperties }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} style={style} xmlns="http://www.w3.org/2000/svg">
+      <path fill="none" d="M0 0h24v24H0z"/>
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+    </svg>
+  );
+}
+
+function IconInfoOutline({ size = 11, className = "", style }: { size?: number; className?: string; style?: React.CSSProperties }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} style={style} xmlns="http://www.w3.org/2000/svg">
+      <path fill="none" d="M0 0h24v24H0z"/>
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+    </svg>
+  );
+}
+
 export function StatusFlags({ post, size = 13, className = "" }: { post: Post; size?: number; className?: string }) {
   if (!post.isUrgent && !post.isConfidential) return null;
   return (
     <span className={`inline-flex items-center gap-1 ${className}`}>
       {post.isConfidential && <MdVisibilityOff size={size} className="text-amber-500" title="Confidential" />}
-      {post.isUrgent && <MdError size={size} className="text-red-500" title="Urgent" />}
+      {post.isUrgent && <IconErrorOutline size={size} className="text-red-500" />}
     </span>
   );
 }
@@ -521,10 +539,10 @@ export function PostDialog({ isOpen, onClose, editingPost, onSave }: PostDialogP
                 </button>
                 <button type="button" onClick={() => setIsUrgent(true)}
                   className={`flex-1 h-full flex items-center justify-center gap-1.5 rounded-[4px] text-[12px] font-medium transition-colors ${isUrgent ? "bg-red-50 text-red-500" : "text-gray-400 hover:text-gray-600"}`}>
-                  <MdError size={14} />Urgent
+                  <IconErrorOutline size={14} />Urgent
                 </button>
               </div>
-              {isUrgent && <p className="text-[11px] flex items-center gap-1" style={{ color: "var(--wb-red)" }}><MdError size={12} />This post will be highlighted in red</p>}
+              {isUrgent && <p className="text-[11px] flex items-center gap-1" style={{ color: "var(--wb-red)" }}><IconErrorOutline size={12} />This post will be highlighted in red</p>}
             </div>
             <div className="flex flex-col gap-1.5">
               <label className="text-[12px] font-medium" style={{ color: "var(--wb-ink-400)", fontFamily: "Roboto" }}>File Type <span style={{ color: "var(--wb-red)", fontWeight: 700 }}>*</span></label>
@@ -549,7 +567,7 @@ export function PostDialog({ isOpen, onClose, editingPost, onSave }: PostDialogP
           </div>
           <div className="flex flex-col gap-1">
             <p className="text-[10.5px] flex items-center gap-1" style={{ color: "var(--wb-red)" }}>
-              <MdInfo size={11} />You may select one option from Region, Location, Route, or Depot, with or without banners
+              <IconInfoOutline size={11} />You may select one option from Region, Location, Route, or Depot, with or without banners
             </p>
             <div className="flex flex-col gap-3 mt-2">
               {["Region", "Location", "Route", "Depot", "Banner"].map((field) => {
