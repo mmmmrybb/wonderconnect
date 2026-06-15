@@ -24,13 +24,10 @@ export const CATEGORIES = [
 
 export function ExpiryPill({ date }: { date: string }) {
   const status = ppExpiryStatus(date);
-  if (status === "active") return null;
-  const cfg = status === "expired"
-    ? { bg: "var(--wb-red-bg)", ink: "var(--wb-red)", label: "Expired" }
-    : { bg: "var(--wb-amber-bg)", ink: "var(--wb-amber-ink)", label: "Expiring soon" };
+  if (status !== "expiring") return null;
   return (
     <span className="inline-flex items-center rounded-full px-1.5 py-px text-[10px] font-semibold leading-none whitespace-nowrap"
-      style={{ background: cfg.bg, color: cfg.ink }}>{cfg.label}</span>
+      style={{ background: "var(--wb-amber-bg)", color: "var(--wb-amber-ink)" }}>Expiring soon</span>
   );
 }
 
