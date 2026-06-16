@@ -7,12 +7,12 @@ import menuOpenImg from "../../assets/menu-open.svg";
 function WonderConnectLogo() {
   return (
     <svg viewBox="0 0 175 30" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ height: 26, width: "auto" }}>
-      <circle cx="5" cy="9" r="3.5" fill="#E74755"/>
-      <circle cx="13" cy="4" r="2.5" fill="#FBE75F"/>
-      <circle cx="23" cy="7" r="7" fill="#2F83C5"/>
-      <circle cx="28" cy="19" r="6" fill="#7BBF44"/>
-      <text x="2" y="26" fontFamily="Nunito, sans-serif" fontSize="20" fill="white">
-        <tspan fontWeight="800">Wonder</tspan><tspan fontWeight="700">Connect</tspan>
+      <circle cx="4" cy="7" r="3" fill="#E74755"/>
+      <circle cx="11" cy="3" r="2" fill="#FBE75F"/>
+      <circle cx="20" cy="6" r="7" fill="#2F83C5"/>
+      <circle cx="26" cy="16" r="6" fill="#7BBF44"/>
+      <text x="8" y="26" fontFamily="Nunito, sans-serif" fontSize="21" fill="white">
+        <tspan fontWeight="900">Wonder</tspan><tspan fontWeight="700">Connect</tspan>
       </text>
     </svg>
   );
