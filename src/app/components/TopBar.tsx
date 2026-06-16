@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NotificationBanner } from "./NotificationBanner";
 import pfpImg from "../../assets/pfp.png";
 import menuCloseImg from "../../assets/menu-close.svg";
 import menuOpenImg from "../../assets/menu-open.svg";
@@ -30,10 +31,9 @@ function ProfileAvatar() {
 interface TopBarProps {
   menuOpen?: boolean;
   onToggleNav?: () => void;
-  centerContent?: React.ReactNode;
 }
 
-export function TopBar({ menuOpen = false, onToggleNav, centerContent }: TopBarProps) {
+export function TopBar({ menuOpen = false, onToggleNav }: TopBarProps) {
   const [lang, setLang] = useState<"EN" | "FR">("EN");
 
   return (
@@ -62,8 +62,8 @@ export function TopBar({ menuOpen = false, onToggleNav, centerContent }: TopBarP
           </div>
         </div>
 
-        {/* Center: optional slot (e.g. announcement banner) */}
-        <div className="flex-1 min-w-0 flex items-center">{centerContent}</div>
+        {/* Center: scrolling announcement marquee */}
+        <NotificationBanner inline />
 
         {/* Right: language + profile */}
         <div className="flex items-center flex-none" style={{ gap: "20px", paddingLeft: 16, paddingRight: 24 }}>
