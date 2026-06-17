@@ -58,9 +58,6 @@ export function TopBar({ menuOpen = false, onToggleNav }: TopBarProps) {
           >
             <img src={menuOpen ? menuOpenImg : menuCloseImg} alt="Menu" style={{ width: 28, height: 28 }} />
           </button>
-          <div className="flex-none">
-            <WonderConnectLogo />
-          </div>
         </div>
 
         {/* Center: scrolling announcement marquee */}
