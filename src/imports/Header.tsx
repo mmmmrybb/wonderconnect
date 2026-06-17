@@ -1,4 +1,4 @@
-import imgWonderconnect1 from "figma:asset/626a9f8383df3b2003d799798e5cb065de374bd9.png";
+import imgWonderconnect1 from "../assets/wb_logo.svg";
 import imgProfile from "figma:asset/d0461a66ef06fca642f270708e1ad8f0e55bc126.png";
 import svgPaths from "./svg-f8rftpwqwc";
 
