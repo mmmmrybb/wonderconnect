@@ -22,12 +22,12 @@ export const CATEGORIES = [
 export type Category = typeof CATEGORIES[number];
 
 export const CATEGORY_COLORS: Record<string, { rail: string; railBg: string; badgeBg: string; badgeText: string }> = {
-  "Marketing Material": { rail: "#7C3AED", railBg: "#F5F3FF", badgeBg: "#EDE9FE", badgeText: "#5B21B6" },
-  "Buy & Sell":         { rail: "#4338CA", railBg: "#EEF2FF", badgeBg: "#E0E7FF", badgeText: "#3730A3" },
-  "Customers Updates":  { rail: "#0F766E", railBg: "#F0FDFA", badgeBg: "#CCFBF1", badgeText: "#115E59" },
-  "General Updates":    { rail: "#1D4ED8", railBg: "#EFF6FF", badgeBg: "#DBEAFE", badgeText: "#1E40AF" },
-  "Promotions":         { rail: "#D97706", railBg: "#FFFBEB", badgeBg: "#FEF3C7", badgeText: "#92400E" },
-  "Support":            { rail: "#15803D", railBg: "#F0FDF4", badgeBg: "#DCFCE7", badgeText: "#166534" },
+  "Marketing Material": { rail: "#7C3AED", railBg: "#F1EEFF", badgeBg: "#F1EEFF", badgeText: "#7C3AED" },
+  "Buy & Sell":         { rail: "#BA00BA", railBg: "#FEDFFE", badgeBg: "#FEDFFE", badgeText: "#BA00BA" },
+  "Customers Updates":  { rail: "#0F766E", railBg: "#E1FCFF", badgeBg: "#E1FCFF", badgeText: "#0F766E" },
+  "General Updates":    { rail: "#1D4ED8", railBg: "#EAF3FF", badgeBg: "#EAF3FF", badgeText: "#1D4ED8" },
+  "Promotions":         { rail: "#F59700", railBg: "#FFFBEB", badgeBg: "#FFFBEB", badgeText: "#F59700" },
+  "Support":            { rail: "#15803D", railBg: "#ECFFEB", badgeBg: "#ECFFEB", badgeText: "#15803D" },
 };
 
 
