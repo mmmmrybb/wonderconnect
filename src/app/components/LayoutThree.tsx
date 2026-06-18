@@ -205,7 +205,7 @@ function PostRow({ post, ctl }: { post: Post; ctl: CommsController }) {
           <span className="truncate">{post.fileName}</span>
         </p>
         <div className="mt-1 flex items-center gap-1.5 flex-wrap">
-          {showCategory && <CategoryPill category={post.category} />}
+          {showCategory && <span className="text-[11px] font-medium" style={{ color: CATEGORY_COLORS[post.category]?.rail ?? "#6a7282" }}>{post.category}</span>}
           {showCategory && <span className="text-gray-300 text-[11px]">·</span>}
           <span className="text-[11px] text-gray-400">{ppFormatDate(post.postDate)} – {post.expiryDate ? ppFormatDate(post.expiryDate) : "No expiry"}</span>
           {ppExpiryStatus(post.expiryDate) === "expired" && <ExpiryPill date={post.expiryDate} />}

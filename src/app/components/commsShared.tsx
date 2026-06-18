@@ -32,18 +32,6 @@ export const CATEGORY_COLORS: Record<string, { rail: string; railBg: string; bad
   "Buy & Sell":            { rail: "#BE123C", railBg: "#FFF1F2", badgeBg: "#FFE4E6", badgeText: "#9F1239" },
 };
 
-export function CategoryPill({ category }: { category: string }) {
-  const c = CATEGORY_COLORS[category];
-  if (!c) return <span className="text-[11px] text-gray-500">{category}</span>;
-  return (
-    <span
-      className="inline-flex items-center rounded-full px-2 py-0.5 text-[10.5px] font-medium leading-none whitespace-nowrap"
-      style={{ background: c.badgeBg, color: c.badgeText }}
-    >
-      {category}
-    </span>
-  );
-}
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 

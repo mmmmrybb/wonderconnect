@@ -31,7 +31,7 @@ import {
 import { Post, CATEGORIES } from "../App";
 import editSvgPaths from "../../imports/svg-jkt3f57y5j";
 import deleteSvgPaths from "../../imports/svg-e8mckgskin";
-import { CategoryPill } from "./commsShared";
+import { CATEGORY_COLORS } from "./commsShared";
 
 // ─── Expiry helpers ──────────────────────────────────────���────────────────────
 const TODAY = new Date("2026-03-03");
@@ -1341,7 +1341,9 @@ export function PostsPanel({ posts, setPosts, activeCategory, selectedPost, onSe
                     {/* Category */}
                     {activeCategory === "All" && (
                       <td className="px-2 py-4 w-36">
-                        <CategoryPill category={post.category} />
+                        <span className="text-xs font-medium" style={{ color: CATEGORY_COLORS[post.category]?.rail ?? "#6a7282" }}>
+                          {post.category}
+                        </span>
                       </td>
                     )}
 
