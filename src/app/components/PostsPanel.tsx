@@ -31,17 +31,7 @@ import {
 import { Post, CATEGORIES } from "../App";
 import editSvgPaths from "../../imports/svg-jkt3f57y5j";
 import deleteSvgPaths from "../../imports/svg-e8mckgskin";
-
-// ─── Category styling ────────────────────────────────────────────────────────
-const CATEGORY_STYLES: Record<string, string> = {
-  Marketing: "bg-gray-100 text-gray-700",
-  "Features & Promotions": "bg-gray-100 text-gray-700",
-  "New Product Listings": "bg-gray-100 text-gray-700",
-  "Policies & Documents": "bg-gray-100 text-gray-700",
-  Support: "bg-gray-100 text-gray-700",
-  "Product Availability": "bg-gray-100 text-gray-700",
-  "Buy & Sell": "bg-gray-100 text-gray-700",
-};
+import { CategoryPill } from "./commsShared";
 
 // ─── Expiry helpers ──────────────────────────────────────���────────────────────
 const TODAY = new Date("2026-03-03");
@@ -1351,11 +1341,7 @@ export function PostsPanel({ posts, setPosts, activeCategory, selectedPost, onSe
                     {/* Category */}
                     {activeCategory === "All" && (
                       <td className="px-2 py-4 w-36">
-                        <span className={`text-xs transition-colors ${
-                          !post.isRead ? "font-semibold text-gray-700" : "text-gray-400"
-                        }`}>
-                          {post.category}
-                        </span>
+                        <CategoryPill category={post.category} />
                       </td>
                     )}
 

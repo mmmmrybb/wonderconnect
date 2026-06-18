@@ -20,6 +20,31 @@ export const CATEGORIES = [
   "Buy & Sell",
 ] as const;
 
+export type Category = typeof CATEGORIES[number];
+
+export const CATEGORY_COLORS: Record<string, { rail: string; railBg: string; badgeBg: string; badgeText: string }> = {
+  "Features & Promotions": { rail: "#7C3AED", railBg: "#F5F3FF", badgeBg: "#EDE9FE", badgeText: "#5B21B6" },
+  "Marketing":             { rail: "#C2410C", railBg: "#FFF7ED", badgeBg: "#FFEDD5", badgeText: "#9A3412" },
+  "New Product Listings":  { rail: "#15803D", railBg: "#F0FDF4", badgeBg: "#DCFCE7", badgeText: "#166534" },
+  "Policies & Documents":  { rail: "#1D4ED8", railBg: "#EFF6FF", badgeBg: "#DBEAFE", badgeText: "#1E40AF" },
+  "Support":               { rail: "#0F766E", railBg: "#F0FDFA", badgeBg: "#CCFBF1", badgeText: "#115E59" },
+  "Product Availability":  { rail: "#B45309", railBg: "#FFFBEB", badgeBg: "#FEF3C7", badgeText: "#92400E" },
+  "Buy & Sell":            { rail: "#BE123C", railBg: "#FFF1F2", badgeBg: "#FFE4E6", badgeText: "#9F1239" },
+};
+
+export function CategoryPill({ category }: { category: string }) {
+  const c = CATEGORY_COLORS[category];
+  if (!c) return <span className="text-[11px] text-gray-500">{category}</span>;
+  return (
+    <span
+      className="inline-flex items-center rounded-full px-2 py-0.5 text-[10.5px] font-medium leading-none whitespace-nowrap"
+      style={{ background: c.badgeBg, color: c.badgeText }}
+    >
+      {category}
+    </span>
+  );
+}
+
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 export function ExpiryPill({ date }: { date: string }) {

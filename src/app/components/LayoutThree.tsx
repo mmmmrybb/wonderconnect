@@ -5,7 +5,7 @@ import {
 } from "react-icons/md";
 import type { CommsController } from "./useCommsController";
 import { PP_TODAY, ppFormatDate, ppExpiryStatus } from "./useCommsController";
-import { CommsToolbar, CommsPagination, CommsEmpty, ExpiryPill } from "./commsShared";
+import { CommsToolbar, CommsPagination, CommsEmpty, ExpiryPill, CategoryPill, CATEGORY_COLORS } from "./commsShared";
 import { PreviewPane } from "./PreviewSurface";
 import type { Post } from "./CommunicationsPage";
 
@@ -79,17 +79,21 @@ function CategoryRail({ posts, activeCategory, onCategoryChange, onCollapse }: {
         {L3_RAIL_CATS.map((cat) => {
           const unread = unreadFor(cat);
           const active = activeCategory === cat;
+          const cc = CATEGORY_COLORS[cat];
+          const activeBg = cc ? cc.railBg : "var(--wb-blue-50)";
+          const activeColor = cc ? cc.rail : "var(--wb-blue)";
+          const activeBadgeBg = cc ? cc.badgeBg : "var(--wb-blue-100)";
           return (
             <button key={cat} onClick={() => onCategoryChange(cat)}
               className={`relative flex items-center justify-between gap-2 text-left text-[12.5px] transition-colors ${
                 active ? "font-medium" : "bg-gray-100 text-gray-600 hover:bg-white hover:text-gray-900 font-normal"
               }`}
-              style={{ padding: "0 8px 0 12px", height: 40, background: active ? "var(--wb-blue-50)" : undefined, color: active ? "var(--wb-blue)" : undefined }}
+              style={{ padding: "0 8px 0 12px", height: 40, background: active ? activeBg : undefined, color: active ? activeColor : undefined }}
             >
               <span className="truncate">{cat}</span>
               {unread > 0 && (
-                <span className={`flex-none text-[10px] font-semibold rounded-full px-1.5 py-0.5 min-w-[18px] text-center leading-none`}
-                  style={{ background: active ? "var(--wb-blue-100)" : "var(--wb-red-bg)", color: active ? "var(--wb-blue)" : "var(--wb-red)" }}>
+                <span className="flex-none text-[10px] font-semibold rounded-full px-1.5 py-0.5 min-w-[18px] text-center leading-none"
+                  style={{ background: active ? activeBadgeBg : "var(--wb-red-bg)", color: active ? activeColor : "var(--wb-red)" }}>
                   {unread}
                 </span>
               )}
@@ -201,7 +205,7 @@ function PostRow({ post, ctl }: { post: Post; ctl: CommsController }) {
           <span className="truncate">{post.fileName}</span>
         </p>
         <div className="mt-1 flex items-center gap-1.5 flex-wrap">
-          {showCategory && <span className="text-[11px] text-gray-500">{post.category}</span>}
+          {showCategory && <CategoryPill category={post.category} />}
           {showCategory && <span className="text-gray-300 text-[11px]">·</span>}
           <span className="text-[11px] text-gray-400">{ppFormatDate(post.postDate)} – {post.expiryDate ? ppFormatDate(post.expiryDate) : "No expiry"}</span>
           {ppExpiryStatus(post.expiryDate) === "expired" && <ExpiryPill date={post.expiryDate} />}
