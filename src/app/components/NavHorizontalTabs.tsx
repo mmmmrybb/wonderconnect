@@ -2,13 +2,12 @@ import { Post } from "../App";
 
 const ALL_CATS = [
   "All",
-  "Features & Promotions",
-  "Marketing",
-  "New Product Listings",
-  "Policies & Documents",
-  "Support",
-  "Product Availability",
+  "Marketing Material",
   "Buy & Sell",
+  "Customers Updates",
+  "General Updates",
+  "Promotions",
+  "Support",
 ];
 
 interface NavHorizontalTabsProps {

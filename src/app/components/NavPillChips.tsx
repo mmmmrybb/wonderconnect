@@ -2,25 +2,22 @@ import { Post } from "../App";
 
 const ALL_CATS = [
   "All",
-  "Features & Promotions",
-  "Marketing",
-  "New Product Listings",
-  "Policies & Documents",
-  "Support",
-  "Product Availability",
+  "Marketing Material",
   "Buy & Sell",
+  "Customers Updates",
+  "General Updates",
+  "Promotions",
+  "Support",
 ];
 
-// Each category gets a distinct colour pair [bg-active, text-active, bg-inactive, dot]
 const CAT_COLORS: Record<string, { active: string; inactive: string; dot: string }> = {
-  All:                      { active: "bg-[#0D1B3E] text-white border-[#0D1B3E]",     inactive: "bg-white text-gray-600 border-gray-200 hover:border-gray-400",   dot: "bg-[#0D1B3E]" },
-  "Features & Promotions":  { active: "bg-blue-600 text-white border-blue-600",        inactive: "bg-white text-gray-600 border-gray-200 hover:border-blue-300",   dot: "bg-blue-500" },
-  Marketing:                { active: "bg-red-600 text-white border-red-600",          inactive: "bg-white text-gray-600 border-gray-200 hover:border-red-300",    dot: "bg-red-500" },
-  "New Product Listings":   { active: "bg-emerald-600 text-white border-emerald-600",  inactive: "bg-white text-gray-600 border-gray-200 hover:border-emerald-300",dot: "bg-emerald-500" },
-  "Policies & Documents":   { active: "bg-violet-600 text-white border-violet-600",    inactive: "bg-white text-gray-600 border-gray-200 hover:border-violet-300", dot: "bg-violet-500" },
-  Support:                  { active: "bg-orange-500 text-white border-orange-500",    inactive: "bg-white text-gray-600 border-gray-200 hover:border-orange-300", dot: "bg-orange-500" },
-  "Product Availability":   { active: "bg-cyan-600 text-white border-cyan-600",        inactive: "bg-white text-gray-600 border-gray-200 hover:border-cyan-300",   dot: "bg-cyan-500" },
-  "Buy & Sell":             { active: "bg-amber-500 text-white border-amber-500",      inactive: "bg-white text-gray-600 border-gray-200 hover:border-amber-300",  dot: "bg-amber-500" },
+  All:                   { active: "bg-[#0D1B3E] text-white border-[#0D1B3E]",       inactive: "bg-white text-gray-600 border-gray-200 hover:border-gray-400",    dot: "bg-[#0D1B3E]" },
+  "Marketing Material":  { active: "bg-amber-600 text-white border-amber-600",        inactive: "bg-white text-gray-600 border-gray-200 hover:border-amber-300",   dot: "bg-amber-500" },
+  "Buy & Sell":          { active: "bg-indigo-600 text-white border-indigo-600",      inactive: "bg-white text-gray-600 border-gray-200 hover:border-indigo-300",  dot: "bg-indigo-500" },
+  "Customers Updates":   { active: "bg-teal-700 text-white border-teal-700",          inactive: "bg-white text-gray-600 border-gray-200 hover:border-teal-300",    dot: "bg-teal-600" },
+  "General Updates":     { active: "bg-blue-600 text-white border-blue-600",          inactive: "bg-white text-gray-600 border-gray-200 hover:border-blue-300",    dot: "bg-blue-500" },
+  Promotions:            { active: "bg-violet-600 text-white border-violet-600",      inactive: "bg-white text-gray-600 border-gray-200 hover:border-violet-300",  dot: "bg-violet-500" },
+  Support:               { active: "bg-emerald-700 text-white border-emerald-700",    inactive: "bg-white text-gray-600 border-gray-200 hover:border-emerald-300", dot: "bg-emerald-600" },
 };
 
 interface NavPillChipsProps {

@@ -11,25 +11,23 @@ import type { Post } from "./CommunicationsPage";
 import type { FilterState } from "./useCommsController";
 
 export const CATEGORIES = [
-  "Features & Promotions",
-  "Marketing",
-  "New Product Listings",
-  "Policies & Documents",
-  "Support",
-  "Product Availability",
+  "Marketing Material",
   "Buy & Sell",
+  "Customers Updates",
+  "General Updates",
+  "Promotions",
+  "Support",
 ] as const;
 
 export type Category = typeof CATEGORIES[number];
 
 export const CATEGORY_COLORS: Record<string, { rail: string; railBg: string; badgeBg: string; badgeText: string }> = {
-  "Features & Promotions": { rail: "#7C3AED", railBg: "#F5F3FF", badgeBg: "#EDE9FE", badgeText: "#5B21B6" },
-  "Marketing":             { rail: "#D97706", railBg: "#FFFBEB", badgeBg: "#FEF3C7", badgeText: "#92400E" },
-  "New Product Listings":  { rail: "#15803D", railBg: "#F0FDF4", badgeBg: "#DCFCE7", badgeText: "#166534" },
-  "Policies & Documents":  { rail: "#1D4ED8", railBg: "#EFF6FF", badgeBg: "#DBEAFE", badgeText: "#1E40AF" },
-  "Support":               { rail: "#0F766E", railBg: "#F0FDFA", badgeBg: "#CCFBF1", badgeText: "#115E59" },
-  "Product Availability":  { rail: "#B45309", railBg: "#FFFBEB", badgeBg: "#FEF3C7", badgeText: "#92400E" },
-  "Buy & Sell":            { rail: "#4338CA", railBg: "#EEF2FF", badgeBg: "#E0E7FF", badgeText: "#3730A3" },
+  "Marketing Material": { rail: "#D97706", railBg: "#FFFBEB", badgeBg: "#FEF3C7", badgeText: "#92400E" },
+  "Buy & Sell":         { rail: "#4338CA", railBg: "#EEF2FF", badgeBg: "#E0E7FF", badgeText: "#3730A3" },
+  "Customers Updates":  { rail: "#0F766E", railBg: "#F0FDFA", badgeBg: "#CCFBF1", badgeText: "#115E59" },
+  "General Updates":    { rail: "#1D4ED8", railBg: "#EFF6FF", badgeBg: "#DBEAFE", badgeText: "#1E40AF" },
+  "Promotions":         { rail: "#7C3AED", railBg: "#F5F3FF", badgeBg: "#EDE9FE", badgeText: "#5B21B6" },
+  "Support":            { rail: "#15803D", railBg: "#F0FDF4", badgeBg: "#DCFCE7", badgeText: "#166534" },
 };
 
 

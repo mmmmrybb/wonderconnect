@@ -3,10 +3,10 @@ import {
   Layers,
   Megaphone,
   TrendingUp,
-  PackagePlus,
-  FileText,
+  Users,
+  Bell,
+  Tag,
   LifeBuoy,
-  Package,
   ArrowLeftRight,
   ChevronRight,
 } from "lucide-react";
@@ -19,14 +19,13 @@ const NAV_ITEMS: {
   activeBg: string;
   activeText: string;
 }[] = [
-  { label: "All",                     icon: <Layers size={16} />,         color: "text-white/60",      activeBg: "bg-white/20",    activeText: "text-white" },
-  { label: "Features & Promotions",   icon: <Megaphone size={16} />,      color: "text-blue-300/70",   activeBg: "bg-blue-500/30", activeText: "text-blue-200" },
-  { label: "Marketing",               icon: <TrendingUp size={16} />,     color: "text-red-300/70",    activeBg: "bg-red-500/30",  activeText: "text-red-200" },
-  { label: "New Product Listings",    icon: <PackagePlus size={16} />,    color: "text-emerald-300/70",activeBg: "bg-emerald-500/30",activeText: "text-emerald-200" },
-  { label: "Policies & Documents",    icon: <FileText size={16} />,       color: "text-violet-300/70", activeBg: "bg-violet-500/30",activeText: "text-violet-200" },
-  { label: "Support",                 icon: <LifeBuoy size={16} />,       color: "text-orange-300/70", activeBg: "bg-orange-500/30",activeText: "text-orange-200" },
-  { label: "Product Availability",    icon: <Package size={16} />,        color: "text-cyan-300/70",   activeBg: "bg-cyan-500/30",  activeText: "text-cyan-200" },
-  { label: "Buy & Sell",              icon: <ArrowLeftRight size={16} />, color: "text-amber-300/70",  activeBg: "bg-amber-500/30", activeText: "text-amber-200" },
+  { label: "All",                  icon: <Layers size={16} />,         color: "text-white/60",       activeBg: "bg-white/20",      activeText: "text-white" },
+  { label: "Marketing Material",   icon: <TrendingUp size={16} />,     color: "text-amber-300/70",   activeBg: "bg-amber-500/30",  activeText: "text-amber-200" },
+  { label: "Buy & Sell",           icon: <ArrowLeftRight size={16} />, color: "text-indigo-300/70",  activeBg: "bg-indigo-500/30", activeText: "text-indigo-200" },
+  { label: "Customers Updates",    icon: <Users size={16} />,          color: "text-teal-300/70",    activeBg: "bg-teal-500/30",   activeText: "text-teal-200" },
+  { label: "General Updates",      icon: <Bell size={16} />,           color: "text-blue-300/70",    activeBg: "bg-blue-500/30",   activeText: "text-blue-200" },
+  { label: "Promotions",           icon: <Megaphone size={16} />,      color: "text-violet-300/70",  activeBg: "bg-violet-500/30", activeText: "text-violet-200" },
+  { label: "Support",              icon: <LifeBuoy size={16} />,       color: "text-emerald-300/70", activeBg: "bg-emerald-500/30",activeText: "text-emerald-200" },
 ];
 
 interface NavIconRailProps {

@@ -4,13 +4,12 @@ import { Post } from "../App";
 
 const NAV_ITEMS = [
   "All",
-  "Features & Promotions",
-  "Marketing",
-  "New Product Listings",
-  "Policies & Documents",
-  "Support",
-  "Product Availability",
+  "Marketing Material",
   "Buy & Sell",
+  "Customers Updates",
+  "General Updates",
+  "Promotions",
+  "Support",
 ];
 
 interface SidebarProps {

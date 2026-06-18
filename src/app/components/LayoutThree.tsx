@@ -10,8 +10,8 @@ import { PreviewPane } from "./PreviewSurface";
 import type { Post } from "./CommunicationsPage";
 
 const L3_RAIL_CATS = [
-  "All", "Features & Promotions", "Marketing", "New Product Listings",
-  "Policies & Documents", "Support", "Product Availability", "Buy & Sell",
+  "All", "Marketing Material", "Buy & Sell", "Customers Updates",
+  "General Updates", "Promotions", "Support",
 ];
 
 const L3_BUCKETS = [
