@@ -12,11 +12,11 @@ const ALL_CATS = [
 
 const CAT_COLORS: Record<string, { active: string; inactive: string; dot: string }> = {
   All:                   { active: "bg-[#0D1B3E] text-white border-[#0D1B3E]",       inactive: "bg-white text-gray-600 border-gray-200 hover:border-gray-400",    dot: "bg-[#0D1B3E]" },
-  "Marketing Material":  { active: "bg-amber-600 text-white border-amber-600",        inactive: "bg-white text-gray-600 border-gray-200 hover:border-amber-300",   dot: "bg-amber-500" },
+  "Marketing Material":  { active: "bg-violet-600 text-white border-violet-600",      inactive: "bg-white text-gray-600 border-gray-200 hover:border-violet-300",  dot: "bg-violet-500" },
   "Buy & Sell":          { active: "bg-indigo-600 text-white border-indigo-600",      inactive: "bg-white text-gray-600 border-gray-200 hover:border-indigo-300",  dot: "bg-indigo-500" },
   "Customers Updates":   { active: "bg-teal-700 text-white border-teal-700",          inactive: "bg-white text-gray-600 border-gray-200 hover:border-teal-300",    dot: "bg-teal-600" },
   "General Updates":     { active: "bg-blue-600 text-white border-blue-600",          inactive: "bg-white text-gray-600 border-gray-200 hover:border-blue-300",    dot: "bg-blue-500" },
-  Promotions:            { active: "bg-violet-600 text-white border-violet-600",      inactive: "bg-white text-gray-600 border-gray-200 hover:border-violet-300",  dot: "bg-violet-500" },
+  Promotions:            { active: "bg-amber-600 text-white border-amber-600",        inactive: "bg-white text-gray-600 border-gray-200 hover:border-amber-300",   dot: "bg-amber-500" },
   Support:               { active: "bg-emerald-700 text-white border-emerald-700",    inactive: "bg-white text-gray-600 border-gray-200 hover:border-emerald-300", dot: "bg-emerald-600" },
 };
 

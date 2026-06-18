@@ -31,11 +31,11 @@ const CAT_META: {
   {
     label: "Marketing Material",
     icon: <TrendingUp size={14} />,
-    color: "text-amber-700",
-    border: "border-gray-200 hover:border-amber-300",
-    activeBg: "bg-amber-600 border-amber-600",
+    color: "text-violet-700",
+    border: "border-gray-200 hover:border-violet-300",
+    activeBg: "bg-violet-600 border-violet-600",
     activeText: "text-white",
-    iconBg: "bg-amber-50",
+    iconBg: "bg-violet-50",
   },
   {
     label: "Buy & Sell",
@@ -67,11 +67,11 @@ const CAT_META: {
   {
     label: "Promotions",
     icon: <Megaphone size={14} />,
-    color: "text-violet-700",
-    border: "border-gray-200 hover:border-violet-300",
-    activeBg: "bg-violet-600 border-violet-600",
+    color: "text-amber-700",
+    border: "border-gray-200 hover:border-amber-300",
+    activeBg: "bg-amber-600 border-amber-600",
     activeText: "text-white",
-    iconBg: "bg-violet-50",
+    iconBg: "bg-amber-50",
   },
   {
     label: "Support",

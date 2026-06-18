@@ -20,11 +20,11 @@ const NAV_ITEMS: {
   activeText: string;
 }[] = [
   { label: "All",                  icon: <Layers size={16} />,         color: "text-white/60",       activeBg: "bg-white/20",      activeText: "text-white" },
-  { label: "Marketing Material",   icon: <TrendingUp size={16} />,     color: "text-amber-300/70",   activeBg: "bg-amber-500/30",  activeText: "text-amber-200" },
+  { label: "Marketing Material",   icon: <TrendingUp size={16} />,     color: "text-violet-300/70",  activeBg: "bg-violet-500/30", activeText: "text-violet-200" },
   { label: "Buy & Sell",           icon: <ArrowLeftRight size={16} />, color: "text-indigo-300/70",  activeBg: "bg-indigo-500/30", activeText: "text-indigo-200" },
   { label: "Customers Updates",    icon: <Users size={16} />,          color: "text-teal-300/70",    activeBg: "bg-teal-500/30",   activeText: "text-teal-200" },
   { label: "General Updates",      icon: <Bell size={16} />,           color: "text-blue-300/70",    activeBg: "bg-blue-500/30",   activeText: "text-blue-200" },
-  { label: "Promotions",           icon: <Megaphone size={16} />,      color: "text-violet-300/70",  activeBg: "bg-violet-500/30", activeText: "text-violet-200" },
+  { label: "Promotions",           icon: <Megaphone size={16} />,      color: "text-amber-300/70",   activeBg: "bg-amber-500/30",  activeText: "text-amber-200" },
   { label: "Support",              icon: <LifeBuoy size={16} />,       color: "text-emerald-300/70", activeBg: "bg-emerald-500/30",activeText: "text-emerald-200" },
 ];
 

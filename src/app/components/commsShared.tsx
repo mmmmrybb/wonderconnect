@@ -22,11 +22,11 @@ export const CATEGORIES = [
 export type Category = typeof CATEGORIES[number];
 
 export const CATEGORY_COLORS: Record<string, { rail: string; railBg: string; badgeBg: string; badgeText: string }> = {
-  "Marketing Material": { rail: "#D97706", railBg: "#FFFBEB", badgeBg: "#FEF3C7", badgeText: "#92400E" },
+  "Marketing Material": { rail: "#7C3AED", railBg: "#F5F3FF", badgeBg: "#EDE9FE", badgeText: "#5B21B6" },
   "Buy & Sell":         { rail: "#4338CA", railBg: "#EEF2FF", badgeBg: "#E0E7FF", badgeText: "#3730A3" },
   "Customers Updates":  { rail: "#0F766E", railBg: "#F0FDFA", badgeBg: "#CCFBF1", badgeText: "#115E59" },
   "General Updates":    { rail: "#1D4ED8", railBg: "#EFF6FF", badgeBg: "#DBEAFE", badgeText: "#1E40AF" },
-  "Promotions":         { rail: "#7C3AED", railBg: "#F5F3FF", badgeBg: "#EDE9FE", badgeText: "#5B21B6" },
+  "Promotions":         { rail: "#D97706", railBg: "#FFFBEB", badgeBg: "#FEF3C7", badgeText: "#92400E" },
   "Support":            { rail: "#15803D", railBg: "#F0FDF4", badgeBg: "#DCFCE7", badgeText: "#166534" },
 };
 
