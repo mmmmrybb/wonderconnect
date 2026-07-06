@@ -6,7 +6,7 @@ const BANNER_STYLES = {
   "white-bg": { bg: "#FFFFFF", text: "var(--wb-navy)" },
   "baby-blue-bg": { bg: "#DDF1FF", text: "var(--wb-red)" },
 } as const;
-const ACTIVE_BANNER_STYLE: keyof typeof BANNER_STYLES = "white-bg";
+const ACTIVE_BANNER_STYLE: keyof typeof BANNER_STYLES = "baby-blue-bg";
 
 interface Announcement {
   id: string;
