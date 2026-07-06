@@ -1,5 +1,5 @@
 import imgWonderconnect1 from "../assets/wb_logo.svg";
-import imgProfile from "figma:asset/d0461a66ef06fca642f270708e1ad8f0e55bc126.png";
+import imgProfile from "../assets/pfp.png";
 import svgPaths from "./svg-f8rftpwqwc";
 
 import { useState } from "react";
