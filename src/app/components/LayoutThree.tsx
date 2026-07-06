@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import {
-  MdMenuOpen, MdMenu, MdSwapVert, MdEdit, MdCheck,
+  MdMenuOpen, MdSwapVert, MdEdit, MdCheck,
   MdMailOutline, MdDrafts, MdDeleteOutline, MdKeyboardArrowRight, MdKeyboardArrowUp, MdKeyboardArrowDown, MdVisibilityOff,
+  MdApps, MdCampaign, MdCurrencyExchange, MdArticle, MdLocalOffer, MdSupportAgent,
 } from "react-icons/md";
 import type { CommsController } from "./useCommsController";
 import { PP_TODAY, ppFormatDate, ppExpiryStatus } from "./useCommsController";
@@ -13,6 +14,33 @@ const L3_RAIL_CATS = [
   "All", "Marketing Material", "Buy & Sell", "Customers Updates",
   "General Updates", "Promotions", "Support",
 ];
+
+type RailIcon = React.ComponentType<{ size?: number; className?: string; style?: React.CSSProperties }>;
+
+// Some glyphs (Google's newer Material Symbols) have no react-icons/mui export yet;
+// render those via the Material Symbols Sharp webfont already loaded in index.html.
+function symbolIcon(name: string): RailIcon {
+  return function MaterialSymbolIcon({ size = 17, className = "", style }) {
+    return (
+      <span
+        className={`material-symbols-sharp select-none leading-none ${className}`}
+        style={{ fontSize: size, fontVariationSettings: "'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24", ...style }}
+      >
+        {name}
+      </span>
+    );
+  };
+}
+
+const L3_RAIL_ICONS: Record<string, RailIcon> = {
+  "All": symbolIcon("forum"),
+  "Marketing Material": MdCampaign,
+  "Buy & Sell": MdCurrencyExchange,
+  "Customers Updates": symbolIcon("person_alert"),
+  "General Updates": MdArticle,
+  "Promotions": MdLocalOffer,
+  "Support": MdSupportAgent,
+};
 
 const L3_BUCKETS = [
   { key: "today", label: "Today" },
@@ -67,7 +95,7 @@ function CategoryRail({ posts, activeCategory, onCategoryChange, onCollapse }: {
     cat === "All" ? posts.filter((p) => !p.isRead).length : posts.filter((p) => !p.isRead && p.category === cat).length;
 
   return (
-    <div className="flex-none w-[200px] bg-gray-100 border-r flex flex-col overflow-y-auto" style={{ borderColor: "var(--wb-line-2)" }}>
+    <div className="flex-none w-[200px] bg-white border-r flex flex-col overflow-y-auto" style={{ borderColor: "var(--wb-line-2)", boxShadow: "3px 0 14px rgba(15,23,42,.25)" }}>
       <div className="flex items-center justify-between border-b px-3" style={{ borderColor: "var(--wb-line-2)", height: 48, padding: "0 8px 0 12px" }}>
         <p className="text-[11px] font-semibold uppercase tracking-[0.8px] text-gray-400" style={{ fontFamily: "Roboto", fontWeight: 400 }}>COMMUNICATIONS</p>
         <button onClick={onCollapse} title="Hide categories"
@@ -86,7 +114,7 @@ function CategoryRail({ posts, activeCategory, onCategoryChange, onCollapse }: {
           return (
             <button key={cat} onClick={() => onCategoryChange(cat)}
               className={`relative flex items-center justify-between gap-2 text-left text-[12.5px] transition-colors ${
-                active ? "font-medium" : "bg-gray-100 text-gray-600 hover:bg-white hover:text-gray-900 font-normal"
+                active ? "font-medium" : "text-gray-600 hover:bg-gray-50 hover:text-gray-900 font-normal"
               }`}
               style={{ padding: "0 8px 0 12px", height: 40, background: active ? activeBg : undefined, color: active ? activeColor : undefined }}
             >
@@ -105,15 +133,49 @@ function CategoryRail({ posts, activeCategory, onCategoryChange, onCollapse }: {
   );
 }
 
-function CollapsedRail({ onExpand }: { onExpand: () => void }) {
+function CollapsedRailIcon({ cat, active, onSelect }: { cat: string; active: boolean; onSelect: () => void }) {
+  const [hover, setHover] = useState(false);
+  const Icon = L3_RAIL_ICONS[cat] ?? MdApps;
+  const cc = CATEGORY_COLORS[cat];
+  const activeBg = cc ? cc.railBg : "var(--wb-blue-50)";
+  const activeColor = cc ? cc.rail : "var(--wb-blue)";
+
   return (
-    <button onClick={onExpand} title="Show categories"
-      className="flex-none w-9 flex flex-col items-center hover:bg-gray-100 transition-colors cursor-pointer"
-      style={{ height: "100%", borderRight: "1px solid var(--wb-line-2)", background: "rgb(246,246,246)" }}>
-      <span className="w-7 h-7 mt-3 flex-none flex items-center justify-center rounded-[4px]" style={{ color: "var(--wb-blue)" }}>
-        <MdMenu size={18} />
-      </span>
-    </button>
+    <div className="relative flex justify-center flex-none" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+      <button onClick={onSelect}
+        className="w-7 h-7 my-1 flex items-center justify-center rounded-[6px] transition-colors"
+        style={{ background: active ? activeBg : undefined, color: active ? activeColor : "var(--wb-ink-400)" }}
+      >
+        <Icon size={17} />
+      </button>
+      {hover && (
+        <div className="absolute left-full top-1/2 -translate-y-1/2 ml-2 z-[50] whitespace-nowrap rounded-[6px] px-2.5 py-1.5 text-[12px] font-medium text-white shadow-lg pointer-events-none"
+          style={{ background: "var(--wb-navy)" }}>
+          {cat}
+          <div className="absolute right-full top-1/2 -translate-y-1/2 w-0 h-0"
+            style={{ borderTop: "5px solid transparent", borderBottom: "5px solid transparent", borderRight: "5px solid var(--wb-navy)" }} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+function CollapsedRail({ posts, activeCategory, onCategoryChange, onExpand }: {
+  posts: Post[]; activeCategory: string; onCategoryChange: (cat: string) => void; onExpand: () => void;
+}) {
+  return (
+    <div className="flex-none w-9 flex flex-col items-center transition-colors"
+      style={{ height: "100%", borderRight: "1px solid var(--wb-line-2)", background: "#FFFFFF", boxShadow: "3px 0 14px rgba(15,23,42,.25)" }}>
+      <button onClick={onExpand} title="Show categories"
+        className="w-7 h-7 mt-3 mb-1 flex-none flex items-center justify-center rounded-[4px] hover:bg-gray-200 transition-colors"
+        style={{ color: "var(--wb-blue)" }}>
+        <MdMenuOpen size={18} style={{ transform: "scaleX(-1)" }} />
+      </button>
+      <div className="w-6 h-px my-1 flex-none" style={{ background: "var(--wb-line-2)" }} />
+      {L3_RAIL_CATS.map((cat) => (
+        <CollapsedRailIcon key={cat} cat={cat} active={activeCategory === cat} onSelect={() => onCategoryChange(cat)} />
+      ))}
+    </div>
   );
 }
 
@@ -273,7 +335,7 @@ export function LayoutThree({ ctl, posts, activeCategory, onCategoryChange }: La
   return (
     <div ref={rowRef} className="flex flex-1 overflow-hidden">
       {railCollapsed
-        ? <CollapsedRail onExpand={() => setRailCollapsed(false)} />
+        ? <CollapsedRail posts={posts} activeCategory={activeCategory} onCategoryChange={onCategoryChange} onExpand={() => setRailCollapsed(false)} />
         : <CategoryRail posts={posts} activeCategory={activeCategory} onCategoryChange={onCategoryChange} onCollapse={() => setRailCollapsed(true)} />
       }
 

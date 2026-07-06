@@ -1,12 +1,8 @@
 import { useState } from "react";
 import { MdEdit, MdDeleteOutline, MdKeyboardArrowLeft, MdClose, MdAdd } from "react-icons/md";
 
-// Named banner color options, so a style can be swapped by changing ACTIVE_BANNER_STYLE.
-const BANNER_STYLES = {
-  "white-bg": { bg: "#FFFFFF", text: "var(--wb-navy)" },
-  "baby-blue-bg": { bg: "#DDF1FF", text: "var(--wb-red)" },
-} as const;
-const ACTIVE_BANNER_STYLE: keyof typeof BANNER_STYLES = "baby-blue-bg";
+const BANNER_BG = "#DDF1FF";
+const BANNER_TEXT = "var(--wb-red)";
 
 interface Announcement {
   id: string;
@@ -87,12 +83,11 @@ export function NotificationBanner({ inline = false }: NotificationBannerProps) 
 
   // Inline mode: full-height marquee strip for TopBar center
   if (inline) {
-    const style = BANNER_STYLES[ACTIVE_BANNER_STYLE];
     return (
       <>
         <div
           className="flex-1 min-w-0 relative flex items-center"
-          style={{ background: style.bg, borderRadius: 0, border: "none", borderBottom: "none", outline: "none", boxShadow: "none" }}
+          style={{ background: BANNER_BG, borderRadius: 0, border: "none", outline: "none", boxShadow: "none" }}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
         >
@@ -101,10 +96,10 @@ export function NotificationBanner({ inline = false }: NotificationBannerProps) 
               className="flex whitespace-nowrap animate-marquee"
               style={{ animationPlayState: hovered ? "paused" : "running" }}
             >
-              <span className="font-medium text-[12px] pr-[120px]" style={{ color: style.text, fontFamily: "Poppins, sans-serif" }}>
+              <span className="font-medium text-[12px] pr-[120px]" style={{ color: BANNER_TEXT, fontFamily: "Poppins, sans-serif" }}>
                 {marqueeText}
               </span>
-              <span className="font-medium text-[12px] pr-[120px]" style={{ color: style.text, fontFamily: "Poppins, sans-serif" }}>
+              <span className="font-medium text-[12px] pr-[120px]" style={{ color: BANNER_TEXT, fontFamily: "Poppins, sans-serif" }}>
                 {marqueeText}
               </span>
             </div>
@@ -114,7 +109,7 @@ export function NotificationBanner({ inline = false }: NotificationBannerProps) 
               <button
                 onClick={openList}
                 className="flex items-center gap-1.5 px-2.5 py-1 rounded-[3px] shadow-sm cursor-pointer text-[11px] font-semibold transition-opacity"
-                style={{ background: "rgba(255,255,255,0.92)", color: style.text }}
+                style={{ background: "rgba(255,255,255,0.92)", color: BANNER_TEXT }}
               >
                 <MdEdit size={11} />
                 Edit
